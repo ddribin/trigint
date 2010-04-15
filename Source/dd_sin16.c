@@ -5,8 +5,18 @@
  * http://www.dattalo.com/technical/software/pic/picsine.html
  */
 
+/*
+ * dd_sin16_angle_t is a 14-bit angle, 0 - 0x3FFFF
+ *
+ * xxQQTTTT IIIIIIII
+ * QQ - Quadrant, 00 = quandrant 1, 01 = quadrant 2, etc.
+ * TTTT - Table index into sine16_table
+ * IIIIIIII - Interpolation between successive entries in the table 
+ */
+
 #define SINE_INDEX_WIDTH 4
 #define SINE_INTERP_WIDTH 8
+
 #if (SINE_INDEX_WIDTH + SINE_INTERP_WIDTH > 12)
 # error Invalid sine widths
 #endif
@@ -15,37 +25,33 @@
 #define SINE_INTERP_OFFSET (SINE_INDEX_OFFSET - SINE_INTERP_WIDTH)
 
 #define SINE_TABLE_SIZE (1 << SINE_INDEX_WIDTH)
-int16_t sine_table[SINE_TABLE_SIZE + 1];
+static int16_t sine16_table[SINE_TABLE_SIZE + 1];
 
 #define BITS(_V_, _W_, _O_) (((_V_) >> (_O_)) & ((1 << (_W_)) - 1))
 
-typedef uint16_t dd_sin16_freq_t;
-#define DD_SIN16_FREQ_MAX 0x3FFF
 
-dd_sin16_freq_t ddDegreesToFreqd(double degrees)
+dd_sin16_angle_t dd_degrees_to_angle_d(double degrees)
 {
-	dd_sin16_freq_t freq = (dd_sin16_freq_t)((degrees * 0x4000) / 360.0);
-	return freq;
+	dd_sin16_angle_t angle = (dd_sin16_angle_t)((degrees * 0x4000) / 360.0);
+	return angle;
 }
 
-dd_sin16_freq_t ddDegreesToFreqi(int degrees)
+dd_sin16_angle_t dd_degrees_to_angle_i(int degrees)
 {
-	dd_sin16_freq_t freq = (dd_sin16_freq_t)((degrees * 0x4000) / 360);
-	return freq;
+	dd_sin16_angle_t angle = (dd_sin16_angle_t)((degrees * 0x4000) / 360);
+	return angle;
 }
 
-int16_t my_sin(uint16_t frequency)
+int16_t dd_sin16(dd_sin16_angle_t angle)
 {
-	// xxQQTTTT IIIIPPPP
-	// xxQQTTTT TIIIIPPP
 #if 0
-	uint8_t interp = (frequency >> 0) & 0xff;
-	uint8_t index = (frequency >> 8) & 0x0f;
-	uint8_t quadrant = (frequency >> 12) & 0x03;
+	uint8_t interp = (angle >> 0) & 0xff;
+	uint8_t index = (angle >> 8) & 0x0f;
+	uint8_t quadrant = (angle >> 12) & 0x03;
 #else
-	int32_t interp = BITS(frequency, SINE_INTERP_WIDTH, SINE_INTERP_OFFSET);
-	uint8_t o_index = BITS(frequency, SINE_INDEX_WIDTH, SINE_INDEX_OFFSET);
-	uint8_t quadrant = BITS(frequency, 2, 12);
+	int32_t interp = BITS(angle, SINE_INTERP_WIDTH, SINE_INTERP_OFFSET);
+	uint8_t o_index = BITS(angle, SINE_INDEX_WIDTH, SINE_INDEX_OFFSET);
+	uint8_t quadrant = BITS(angle, 2, 12);
 #endif
 	bool isOdd = (quadrant & 0x01) == 0;
 	bool isNeg = (quadrant & 0x02) != 0;
@@ -55,8 +61,8 @@ int16_t my_sin(uint16_t frequency)
 	}
 	
 	
-	int32_t x1 = sine_table[index];
-	int32_t x2 = sine_table[index+1];
+	int32_t x1 = sine16_table[index];
+	int32_t x2 = sine16_table[index+1];
 #if 0
 	int32_t diff = (x2-x1);
 	int32_t step = diff * (int32_t)interp;
