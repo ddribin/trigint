@@ -1,6 +1,9 @@
 #include "dd_sin16.h"
 #include <stdbool.h>
 
+#include <math.h>
+#include <stdio.h>
+
 /*
  * http://www.dattalo.com/technical/software/pic/picsine.html
  */
@@ -25,6 +28,8 @@
 #define SINE_INTERP_OFFSET (SINE_INDEX_OFFSET - SINE_INTERP_WIDTH)
 
 #define SINE_TABLE_SIZE (1 << SINE_INDEX_WIDTH)
+// Table of the first quadrant values.  Use + 1 to store the first value of
+// the second quadrant, hence we're storing 0 <= degrees <= 90.
 static int16_t sine16_table[SINE_TABLE_SIZE + 1];
 
 #define BITS(_V_, _W_, _O_) (((_V_) >> (_O_)) & ((1 << (_W_)) - 1))
@@ -84,4 +89,15 @@ int16_t dd_sin16(dd_sin16_angle_t angle)
 	}
 #endif
 	return sine;
+}
+
+void dd_sin16_init()
+{
+	for (int i = 0; i < (sizeof(sine16_table)/sizeof(*sine16_table)); i++) {
+		double radians = i * M_PI_2 / SINE_TABLE_SIZE;
+		double sinValue = 32767.0 * sin(radians);
+		int16_t tableValue = sinValue;
+		sine16_table[i] = tableValue;
+		printf("%d,\n", sine16_table[i]);
+	}
 }

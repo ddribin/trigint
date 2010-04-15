@@ -11,6 +11,8 @@ typedef uint16_t dd_sin16_angle_t;
 
 #define DD_SIN16_ANGLE_MAX 0x3FFF
 
+void dd_sin16_init();
+
 /**
  * Returns the sine of angle as signed 16-bit integer. It is scaled to an
  * amplitude of 32767, thus values will range from -32767 to +32767.
