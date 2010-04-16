@@ -32,7 +32,7 @@
 
 - (void)assertSine:(double)degrees
 {
-    static const int accuracy = 100;
+    static const int accuracy = 50;
     int16_t value = [self sin16:degrees];
     int16_t expected = [self sin:degrees];
     int16_t error = abs(value - expected);
@@ -43,7 +43,7 @@
 
 - (void)testSin16WithInterpolation
 {
-    for (double degrees = 0; degrees <= 360.0; degrees += 1.0) {
+    for (double degrees = 0; degrees <= 360.0; degrees += 0.1) {
         [self assertSine:degrees];
     }
 }
