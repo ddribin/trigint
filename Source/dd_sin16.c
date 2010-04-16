@@ -16,9 +16,9 @@
  *
  * xxQQTTTT IIIIPPPP
  * Q - Quadrant, 00 = quandrant 1, 01 = quadrant 2, etc.
- * T - Table index into sine16_table, SINE_INDEX_WIDTH
- * I - Interpolation between successive entries in the table, SINE_INTERP_WIDTH
- * P - Phase accumalation, may be zero width. Used for rounding
+ * T - Table index into sine16_table, SINE_INDEX_WIDTH.
+ * I - Interpolation between successive entries in the table, SINE_INTERP_WIDTH.
+ * P - Phase accumalation, may be zero width. Used for rounding.
  */
 
 #if (SINE_INDEX_WIDTH + SINE_INTERP_WIDTH > 12)
@@ -48,7 +48,7 @@
 
 #if DD_SIN16_STATIC_TABLE
 
-// Table of the first quadrant values.  Use + 1 to store the first value of
+// Table of the first quadrant values.  Size is + 1 to store the first value of
 // the second quadrant, hence we're storing 0 <= degrees <= 90.
 
 static const int16_t dd_sine16_table[SINE_TABLE_SIZE + 1] = {
@@ -83,6 +83,7 @@ int16_t dd_sin16(dd_sin16_angle_t angle)
 		index = SINE_TABLE_SIZE - 1 - index;
 	}
 	
+    // Do calculations with 32 bits since the multiplication can overflow 16 bits
 	int32_t x1 = dd_sine16_table[index];
 	int32_t x2 = dd_sine16_table[index+1];
     int32_t approximation = ((x2-x1) * interp) >> SINE_INTERP_WIDTH;
