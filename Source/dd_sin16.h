@@ -40,6 +40,9 @@ void dd_sin16_table_gen();
 
 #if !DD_SIN16_STATIC_TABLE
 
+/**
+ * Initialize the dynamic table. Must be called before any calls to dd_sin16().
+ */
 void dd_sin16_init();
 
 #endif
