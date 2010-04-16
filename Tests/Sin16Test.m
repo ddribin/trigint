@@ -7,11 +7,18 @@
 
 @implementation Sin16Test
 
+#if !DD_SIN16_STATIC_TABLE
+- (void)setUp
+{
+    dd_sin16_init();
+}
+#endif
+
 - (int16_t)sin:(double)degrees
 {
     double radians = degrees * 2 * M_PI / 360.0;
     double sinValue = sin(radians) * 32767.0;
-    return (int16_t)sinValue;
+    return (int16_t)round(sinValue);
 }
 
 - (int16_t)sin16:(double)degrees
@@ -30,7 +37,7 @@
     STAssertEquals([self sin16:360.0], [self sin:360.0], nil);
 }
 
-- (void)assertSine:(double)degrees
+- (void)assertSineWithinError:(double)degrees
 {
     static const int accuracy = 50;
     int16_t value = [self sin16:degrees];
@@ -44,7 +51,7 @@
 - (void)testSin16WithInterpolation
 {
     for (double degrees = 0; degrees <= 360.0; degrees += 0.1) {
-        [self assertSine:degrees];
+        [self assertSineWithinError:degrees];
     }
 }
 

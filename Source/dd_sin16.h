@@ -30,8 +30,18 @@ double dd_sin16_angle_to_radians_d(dd_sin16_angle_t angle);
 int16_t dd_sin16(dd_sin16_angle_t angle);
 
 /**
- * Prints the table values.
+ * Prints the table values needed to generate a static table.
  */
-void dd_sin16_table();
+void dd_sin16_table_gen();
+
+#ifndef DD_SIN16_STATIC_TABLE
+# define DD_SIN16_STATIC_TABLE 1
+#endif
+
+#if !DD_SIN16_STATIC_TABLE
+
+void dd_sin16_init();
+
+#endif
 
 #endif _DD_SIN16_H_
