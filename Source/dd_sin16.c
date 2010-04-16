@@ -42,43 +42,6 @@ static const int16_t sine16_table[SINE_TABLE_SIZE + 1] = {
 #define BITS(_V_, _W_, _O_) (((_V_) >> (_O_)) & ((1 << (_W_)) - 1))
 
 
-dd_sin16_angle_t dd_sin16_degrees_to_angle_d(double degrees)
-{
-	dd_sin16_angle_t angle = (dd_sin16_angle_t)((degrees * 0x4000) / 360.0);
-	return angle;
-}
-
-dd_sin16_angle_t dd_sin16_degrees_to_angle_i(int degrees)
-{
-	dd_sin16_angle_t angle = (dd_sin16_angle_t)((degrees * 0x4000) / 360);
-	return angle;
-}
-
-double dd_sin16_angle_to_degrees_d(dd_sin16_angle_t angle)
-{
-    double degrees = angle;
-    degrees = degrees * 360 / 0x4000;
-    return degrees;
-}
-
-int dd_sin16_angle_to_degrees_i(dd_sin16_angle_t angle)
-{
-    return 0;
-}
-
-dd_sin16_angle_t dd_sin16_radians_to_angle_d(double radians)
-{
-	dd_sin16_angle_t angle = (dd_sin16_angle_t)((radians * 0x4000) / (2*M_PI));
-	return angle;
-}
-
-double dd_sin16_angle_to_radians_d(dd_sin16_angle_t angle)
-{
-    double angle_d = angle;
-    double radians = (angle_d * 2.0 * M_PI) / 0x4000;
-    return radians;
-}
-
 int16_t dd_sin16(dd_sin16_angle_t angle)
 {
 #if 0
@@ -122,6 +85,50 @@ int16_t dd_sin16(dd_sin16_angle_t angle)
 #endif
 	return sine;
 }
+
+#pragma mark -
+#pragma mark Conversion Routines
+
+dd_sin16_angle_t dd_sin16_degrees_to_angle_d(double degrees)
+{
+	dd_sin16_angle_t angle = (dd_sin16_angle_t)((degrees * 0x4000) / 360.0);
+	return angle;
+}
+
+dd_sin16_angle_t dd_sin16_degrees_to_angle_i(int degrees)
+{
+	dd_sin16_angle_t angle = (dd_sin16_angle_t)((degrees * 0x4000) / 360);
+	return angle;
+}
+
+double dd_sin16_angle_to_degrees_d(dd_sin16_angle_t angle)
+{
+    double angle_d = angle;
+    double degrees = angle_d * 360 / 0x4000;
+    return degrees;
+}
+
+int dd_sin16_angle_to_degrees_i(dd_sin16_angle_t angle)
+{
+    int angle_i = angle;
+    int degrees = angle_i * 360 / 0x4000;
+    return degrees;
+}
+
+dd_sin16_angle_t dd_sin16_radians_to_angle_d(double radians)
+{
+	dd_sin16_angle_t angle = (dd_sin16_angle_t)((radians * 0x4000) / (2*M_PI));
+	return angle;
+}
+
+double dd_sin16_angle_to_radians_d(dd_sin16_angle_t angle)
+{
+    double angle_d = angle;
+    double radians = (angle_d * 2.0 * M_PI) / 0x4000;
+    return radians;
+}
+
+#pragma mark -
 
 void dd_sin16_table()
 {

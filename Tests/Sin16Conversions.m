@@ -33,6 +33,16 @@
     STAssertEquals(dd_sin16_degrees_to_angle_d(360.0), (dd_sin16_angle_t)0x4000, nil);
 }
 
+#pragma mark -
+
+- (void)testAngleToDegreesInt
+{
+    STAssertEquals(dd_sin16_angle_to_degrees_i(0x0000),   0, nil);
+    STAssertEquals(dd_sin16_angle_to_degrees_i(0x1000),  90, nil);
+    STAssertEquals(dd_sin16_angle_to_degrees_i(0x2000), 180, nil);
+    STAssertEquals(dd_sin16_angle_to_degrees_i(0x3000), 270, nil);
+}
+
 - (void)testAngleToDegreesDouble
 {
     static const double ACCURACY_DELTA = 0.0000001;
