@@ -7,7 +7,7 @@
 
 - (void)applicationDidFinishLaunching:(NSNotification *)notification
 {
-    dd_sin16_init();
+    dd_sin16_table();
 }
 
 @end

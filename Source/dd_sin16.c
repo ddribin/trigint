@@ -30,21 +30,53 @@
 #define SINE_TABLE_SIZE (1 << SINE_INDEX_WIDTH)
 // Table of the first quadrant values.  Use + 1 to store the first value of
 // the second quadrant, hence we're storing 0 <= degrees <= 90.
-static int16_t sine16_table[SINE_TABLE_SIZE + 1];
+static const int16_t sine16_table[SINE_TABLE_SIZE + 1] = {
+        0,  3211,  6392,  9511, 12539, 15446, 18204, 20787,
+    23169, 25329, 27244, 28897, 30272, 31356, 32137, 32609,
+    32767
+};
+
+#define SINE_TABLE_COUNT (sizeof(sine16_table)/sizeof(*sine16_table))
+
 
 #define BITS(_V_, _W_, _O_) (((_V_) >> (_O_)) & ((1 << (_W_)) - 1))
 
 
-dd_sin16_angle_t dd_degrees_to_angle_d(double degrees)
+dd_sin16_angle_t dd_sin16_degrees_to_angle_d(double degrees)
 {
 	dd_sin16_angle_t angle = (dd_sin16_angle_t)((degrees * 0x4000) / 360.0);
 	return angle;
 }
 
-dd_sin16_angle_t dd_degrees_to_angle_i(int degrees)
+dd_sin16_angle_t dd_sin16_degrees_to_angle_i(int degrees)
 {
 	dd_sin16_angle_t angle = (dd_sin16_angle_t)((degrees * 0x4000) / 360);
 	return angle;
+}
+
+double dd_sin16_angle_to_degrees_d(dd_sin16_angle_t angle)
+{
+    double degrees = angle;
+    degrees = degrees * 360 / 0x4000;
+    return degrees;
+}
+
+int dd_sin16_angle_to_degrees_i(dd_sin16_angle_t angle)
+{
+    return 0;
+}
+
+dd_sin16_angle_t dd_sin16_radians_to_angle_d(double radians)
+{
+	dd_sin16_angle_t angle = (dd_sin16_angle_t)((radians * 0x4000) / (2*M_PI));
+	return angle;
+}
+
+double dd_sin16_angle_to_radians_d(dd_sin16_angle_t angle)
+{
+    double angle_d = angle;
+    double radians = (angle_d * 2.0 * M_PI) / 0x4000;
+    return radians;
 }
 
 int16_t dd_sin16(dd_sin16_angle_t angle)
@@ -91,13 +123,19 @@ int16_t dd_sin16(dd_sin16_angle_t angle)
 	return sine;
 }
 
-void dd_sin16_init()
+void dd_sin16_table()
 {
-	for (int i = 0; i < (sizeof(sine16_table)/sizeof(*sine16_table)); i++) {
+    char * sep = "";
+	for (int i = 0; i < SINE_TABLE_COUNT; i++) {
 		double radians = i * M_PI_2 / SINE_TABLE_SIZE;
 		double sinValue = 32767.0 * sin(radians);
 		int16_t tableValue = sinValue;
-		sine16_table[i] = tableValue;
-		printf("%d,\n", sine16_table[i]);
+		printf("%s%5d", sep, tableValue);
+        if (((i+1) % 8) == 0) {
+            sep = ",\n";
+        } else {
+            sep = ", ";
+        }
+
 	}
 }
