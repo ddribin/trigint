@@ -1,20 +1,20 @@
 #import "Sin16AppDelegate.h"
-#import "dd_sin16.h"
+#import "DDCoreAudio.h"
 
 @implementation Sin16AppDelegate
 
-@synthesize window;
+@synthesize window = _window;
 
-- (void)applicationDidFinishLaunching:(NSNotification *)notification
+- (void)dumpTables
 {
 #if !DD_SIN16_STATIC_TABLE
-        dd_sin16_init();
+    dd_sin16_init();
 #endif
     
 #if 0
     dd_sin16_table();
 #endif
-
+    
 #if 0
     extern void dd_sin16_dump_table();
     dd_sin16_dump_table();
@@ -29,7 +29,7 @@
     }
     printf("\n");
 #endif
-
+    
 #if 0
     for (double degrees = 0.0; degrees <= 90.0; degrees += 0.1) {
         dd_sin16_angle_t angle = dd_sin16_degrees_to_angle_d(degrees);
@@ -37,6 +37,120 @@
         printf("%.3f, %d\n", degrees, value);
     }
 #endif
+}
+
+static OSStatus MyRenderer(void *							inRefCon,
+                           AudioUnitRenderActionFlags *	ioActionFlags,
+                           const AudioTimeStamp *			inTimeStamp,
+                           UInt32							inBusNumber,
+                           UInt32							inNumberFrames,
+                           AudioBufferList *				ioData)
+{
+    Sin16AppDelegate * self = (Sin16AppDelegate *)inRefCon;
+    self->_renderCount++;
+    
+#if 0
+    bzero(ioData->mBuffers[0].mData,
+          ioData->mBuffers[0].mDataByteSize);
+#else
+    // printf("bytes: %u, frames: %u\n", ioData->mBuffers[0].mDataByteSize, inNumberFrames);
+    int16_t * frame = ioData->mBuffers[0].mData;
+    for (NSUInteger i = 0; i < inNumberFrames; i++) {
+#if 1
+        int16_t sineValue = dd_sin16(self->_phase);
+        sineValue /= 4;
+        // printf("phase: %u, value: %d\n", self->_phase, sineValue);
+        // sineValue = (sineValue >= 0)? 10000 : -10000;
+        // printf("%u, %d\n", self->_phase, sineValue);
+#elif 0
+        double dsineValue = sin(self->_dphase);
+        int16_t sineValue = round(dsineValue*32762.0);
+#else
+        uint32_t mod = (self->_frameCount % 1000);
+        int16_t sineValue = mod < 200? 10000 : -10000;
+        // printf("%7llu, %+d\n", self->_frameCount, sineValue);
+#endif
+        frame[0] = sineValue;
+        frame[1] = sineValue;
+        self->_phase = (self->_phase + self->_phaseIncrement) & 0x3fff;
+        self->_dphase += self->_dphaseIncrement;
+        self->_frameCount++;
+        frame += 2;
+    }
+#if 1
+    self->_phase = (self->_phase & 0x3fff);
+    if (self->_dphase >=  2*M_PI) {
+		self->_dphase = self->_dphase - 2*M_PI;
+	}
+#endif
+#endif
+    return noErr;
+}
+
+- (void)timerFired:(NSTimer *)timer
+{
+    NSLog(@"calls per second: %u", _renderCount);
+    _renderCount = 0;
+    // [_graph show];
+}
+
+- (void)applicationDidFinishLaunching:(NSNotification *)notification
+{
+    _renderCount = 0;
+    _frameCount = 0;
+    [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(timerFired:) userInfo:nil repeats:YES];
+    
+    double note = 440.0;
+    _phase = 0;
+	_phaseIncrement = round(note * 16384.0 / 44100.0);
+    NSLog(@"phaseIncrement: %u", _phaseIncrement);
+
+    _dphase = 0;
+    _dphaseIncrement = (note * M_PI *2) / 44100.0;
+    
+    _graph = [[DDAudioUnitGraph alloc] init];
+    
+    _outputNode = [_graph addNodeWithType:kAudioUnitType_Output
+                                  subType:kAudioUnitSubType_DefaultOutput];
+    [_outputNode retain];
+    
+    
+    _converterNode = [_graph addNodeWithType:kAudioUnitType_FormatConverter
+                                     subType:kAudioUnitSubType_AUConverter];
+    [_converterNode retain];
+
+    [_graph connectNode:_converterNode output:0
+                 toNode:_outputNode input:0];
+    
+    [_graph open];
+    
+    // 16-bit signed integer, stereo
+    AudioStreamBasicDescription _dataFormat = {0};
+    UInt32 formatFlags = (0
+                          | kAudioFormatFlagIsPacked 
+                          | kAudioFormatFlagIsSignedInteger 
+                          | kAudioFormatFlagsNativeEndian
+                          );
+    
+    _dataFormat.mFormatID = kAudioFormatLinearPCM;
+    _dataFormat.mSampleRate = 44100;
+    _dataFormat.mChannelsPerFrame = 2;
+    _dataFormat.mFormatFlags = formatFlags;
+    _dataFormat.mBitsPerChannel = 16;
+    _dataFormat.mFramesPerPacket = 1;
+    _dataFormat.mBytesPerFrame = _dataFormat.mBitsPerChannel * _dataFormat.mChannelsPerFrame / 8;
+    _dataFormat.mBytesPerPacket = _dataFormat.mBytesPerFrame * _dataFormat.mFramesPerPacket;
+    _converterUnit = [[_converterNode audioUnit] retain];
+    [_converterUnit setStreamFormatWithDescription:&_dataFormat];
+    
+    [_graph setInputCallback:MyRenderer context:self
+                     forNode:_converterNode input:0];
+    
+    [_graph show];
+    
+    [_graph update];
+    [_graph initialize];
+    [_graph start];
 }
 
 @end

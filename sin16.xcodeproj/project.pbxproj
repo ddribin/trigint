@@ -29,6 +29,15 @@
 		55508B0B117801AC00ADA67D /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55508B0A117801AC00ADA67D /* SenTestingKit.framework */; };
 		55508B9C11780A4E00ADA67D /* Sin16Conversions.m in Sources */ = {isa = PBXBuildFile; fileRef = 55508B9B11780A4E00ADA67D /* Sin16Conversions.m */; };
 		55EFE89711774FED00E2F8B6 /* dd_sin16.c in Sources */ = {isa = PBXBuildFile; fileRef = 55EFE89611774FED00E2F8B6 /* dd_sin16.c */; };
+		55EFE9B9117941CB00E2F8B6 /* DDAudioComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 55EFE993117941CB00E2F8B6 /* DDAudioComponent.m */; };
+		55EFE9BA117941CB00E2F8B6 /* DDAudioException.m in Sources */ = {isa = PBXBuildFile; fileRef = 55EFE995117941CB00E2F8B6 /* DDAudioException.m */; };
+		55EFE9BB117941CB00E2F8B6 /* DDAudioUnit.m in Sources */ = {isa = PBXBuildFile; fileRef = 55EFE997117941CB00E2F8B6 /* DDAudioUnit.m */; };
+		55EFE9BC117941CB00E2F8B6 /* DDAudioUnitGraph.m in Sources */ = {isa = PBXBuildFile; fileRef = 55EFE999117941CB00E2F8B6 /* DDAudioUnitGraph.m */; };
+		55EFE9BD117941CB00E2F8B6 /* DDAudioUnitNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 55EFE99B117941CB00E2F8B6 /* DDAudioUnitNode.m */; };
+		55EFE9BE117941CB00E2F8B6 /* DDAudioUnitPreset.m in Sources */ = {isa = PBXBuildFile; fileRef = 55EFE99D117941CB00E2F8B6 /* DDAudioUnitPreset.m */; };
+		55EFE9DF117942C800E2F8B6 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55EFE9DE117942C800E2F8B6 /* AudioToolbox.framework */; };
+		55EFE9E3117942D100E2F8B6 /* AudioUnit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55EFE9E2117942D100E2F8B6 /* AudioUnit.framework */; };
+		55EFE9E7117942E100E2F8B6 /* CoreAudioKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55EFE9E6117942E100E2F8B6 /* CoreAudioKit.framework */; };
 		8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165CFE840E0CC02AAC07 /* InfoPlist.strings */; };
 		8D11072D0486CEB800E47090 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
 		8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
@@ -71,6 +80,22 @@
 		55508B9B11780A4E00ADA67D /* Sin16Conversions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Sin16Conversions.m; sourceTree = "<group>"; };
 		55EFE89511774FED00E2F8B6 /* dd_sin16.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = dd_sin16.h; sourceTree = "<group>"; };
 		55EFE89611774FED00E2F8B6 /* dd_sin16.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = dd_sin16.c; sourceTree = "<group>"; };
+		55EFE992117941CB00E2F8B6 /* DDAudioComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDAudioComponent.h; sourceTree = "<group>"; };
+		55EFE993117941CB00E2F8B6 /* DDAudioComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDAudioComponent.m; sourceTree = "<group>"; };
+		55EFE994117941CB00E2F8B6 /* DDAudioException.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDAudioException.h; sourceTree = "<group>"; };
+		55EFE995117941CB00E2F8B6 /* DDAudioException.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDAudioException.m; sourceTree = "<group>"; };
+		55EFE996117941CB00E2F8B6 /* DDAudioUnit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDAudioUnit.h; sourceTree = "<group>"; };
+		55EFE997117941CB00E2F8B6 /* DDAudioUnit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDAudioUnit.m; sourceTree = "<group>"; };
+		55EFE998117941CB00E2F8B6 /* DDAudioUnitGraph.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDAudioUnitGraph.h; sourceTree = "<group>"; };
+		55EFE999117941CB00E2F8B6 /* DDAudioUnitGraph.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDAudioUnitGraph.m; sourceTree = "<group>"; };
+		55EFE99A117941CB00E2F8B6 /* DDAudioUnitNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDAudioUnitNode.h; sourceTree = "<group>"; };
+		55EFE99B117941CB00E2F8B6 /* DDAudioUnitNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDAudioUnitNode.m; sourceTree = "<group>"; };
+		55EFE99C117941CB00E2F8B6 /* DDAudioUnitPreset.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDAudioUnitPreset.h; sourceTree = "<group>"; };
+		55EFE99D117941CB00E2F8B6 /* DDAudioUnitPreset.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDAudioUnitPreset.m; sourceTree = "<group>"; };
+		55EFE99E117941CB00E2F8B6 /* DDCoreAudio.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDCoreAudio.h; sourceTree = "<group>"; };
+		55EFE9DE117942C800E2F8B6 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		55EFE9E2117942D100E2F8B6 /* AudioUnit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioUnit.framework; path = System/Library/Frameworks/AudioUnit.framework; sourceTree = SDKROOT; };
+		55EFE9E6117942E100E2F8B6 /* CoreAudioKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudioKit.framework; path = System/Library/Frameworks/CoreAudioKit.framework; sourceTree = SDKROOT; };
 		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8D1107320486CEB800E47090 /* Sin16.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sin16.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -89,6 +114,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */,
+				55EFE9DF117942C800E2F8B6 /* AudioToolbox.framework in Frameworks */,
+				55EFE9E3117942D100E2F8B6 /* AudioUnit.framework in Frameworks */,
+				55EFE9E7117942E100E2F8B6 /* CoreAudioKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -138,8 +166,12 @@
 				55EFE89411774FDC00E2F8B6 /* Source */,
 				55EFE86411774E6400E2F8B6 /* Demo */,
 				55508A0F1177FEF900ADA67D /* Tests */,
+				55EFE971117941CB00E2F8B6 /* ThirdParty */,
 				29B97323FDCFA39411CA2CEA /* Frameworks */,
 				19C28FACFE9D520D11CA2CBB /* Products */,
+				55EFE9DE117942C800E2F8B6 /* AudioToolbox.framework */,
+				55EFE9E2117942D100E2F8B6 /* AudioUnit.framework */,
+				55EFE9E6117942E100E2F8B6 /* CoreAudioKit.framework */,
 			);
 			name = sin16;
 			sourceTree = "<group>";
@@ -201,6 +233,42 @@
 				55EFE89611774FED00E2F8B6 /* dd_sin16.c */,
 			);
 			path = Source;
+			sourceTree = "<group>";
+		};
+		55EFE971117941CB00E2F8B6 /* ThirdParty */ = {
+			isa = PBXGroup;
+			children = (
+				55EFE972117941CB00E2F8B6 /* DDCoreAudio */,
+			);
+			path = ThirdParty;
+			sourceTree = "<group>";
+		};
+		55EFE972117941CB00E2F8B6 /* DDCoreAudio */ = {
+			isa = PBXGroup;
+			children = (
+				55EFE991117941CB00E2F8B6 /* lib */,
+			);
+			path = DDCoreAudio;
+			sourceTree = "<group>";
+		};
+		55EFE991117941CB00E2F8B6 /* lib */ = {
+			isa = PBXGroup;
+			children = (
+				55EFE992117941CB00E2F8B6 /* DDAudioComponent.h */,
+				55EFE993117941CB00E2F8B6 /* DDAudioComponent.m */,
+				55EFE994117941CB00E2F8B6 /* DDAudioException.h */,
+				55EFE995117941CB00E2F8B6 /* DDAudioException.m */,
+				55EFE996117941CB00E2F8B6 /* DDAudioUnit.h */,
+				55EFE997117941CB00E2F8B6 /* DDAudioUnit.m */,
+				55EFE998117941CB00E2F8B6 /* DDAudioUnitGraph.h */,
+				55EFE999117941CB00E2F8B6 /* DDAudioUnitGraph.m */,
+				55EFE99A117941CB00E2F8B6 /* DDAudioUnitNode.h */,
+				55EFE99B117941CB00E2F8B6 /* DDAudioUnitNode.m */,
+				55EFE99C117941CB00E2F8B6 /* DDAudioUnitPreset.h */,
+				55EFE99D117941CB00E2F8B6 /* DDAudioUnitPreset.m */,
+				55EFE99E117941CB00E2F8B6 /* DDCoreAudio.h */,
+			);
+			path = lib;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -314,6 +382,12 @@
 				8D11072D0486CEB800E47090 /* main.m in Sources */,
 				256AC3DA0F4B6AC300CF3369 /* Sin16AppDelegate.m in Sources */,
 				55EFE89711774FED00E2F8B6 /* dd_sin16.c in Sources */,
+				55EFE9B9117941CB00E2F8B6 /* DDAudioComponent.m in Sources */,
+				55EFE9BA117941CB00E2F8B6 /* DDAudioException.m in Sources */,
+				55EFE9BB117941CB00E2F8B6 /* DDAudioUnit.m in Sources */,
+				55EFE9BC117941CB00E2F8B6 /* DDAudioUnitGraph.m in Sources */,
+				55EFE9BD117941CB00E2F8B6 /* DDAudioUnitNode.m in Sources */,
+				55EFE9BE117941CB00E2F8B6 /* DDAudioUnitPreset.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -468,6 +542,7 @@
 				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -481,6 +556,7 @@
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				PREBINDING = NO;
