@@ -53,45 +53,27 @@ static OSStatus MyRenderer(void *							inRefCon,
     bzero(ioData->mBuffers[0].mData,
           ioData->mBuffers[0].mDataByteSize);
 #else
-    // printf("bytes: %u, frames: %u\n", ioData->mBuffers[0].mDataByteSize, inNumberFrames);
     int16_t * frame = ioData->mBuffers[0].mData;
     for (NSUInteger i = 0; i < inNumberFrames; i++) {
-#if 1
         int16_t sineValue = dd_sin16(self->_phase);
         sineValue /= 4;
-        // printf("phase: %u, value: %d\n", self->_phase, sineValue);
-        // sineValue = (sineValue >= 0)? 10000 : -10000;
-        // printf("%u, %d\n", self->_phase, sineValue);
-#elif 0
-        double dsineValue = sin(self->_dphase);
-        int16_t sineValue = round(dsineValue*32762.0);
-#else
-        uint32_t mod = (self->_frameCount % 1000);
-        int16_t sineValue = mod < 200? 10000 : -10000;
-        // printf("%7llu, %+d\n", self->_frameCount, sineValue);
-#endif
+        
         frame[0] = sineValue;
         frame[1] = sineValue;
-        self->_phase = (self->_phase + self->_phaseIncrement) & 0x3fff;
-        self->_dphase += self->_dphaseIncrement;
+        
+        self->_phase = self->_phase + self->_phaseIncrement;
         self->_frameCount++;
         frame += 2;
     }
-#if 1
     self->_phase = (self->_phase & 0x3fff);
-    if (self->_dphase >=  2*M_PI) {
-		self->_dphase = self->_dphase - 2*M_PI;
-	}
-#endif
 #endif
     return noErr;
 }
 
 - (void)timerFired:(NSTimer *)timer
 {
-    NSLog(@"calls per second: %u", _renderCount);
+    NSLog(@"calls per second: %u, frames: %llu", _renderCount, _frameCount);
     _renderCount = 0;
-    // [_graph show];
 }
 
 - (void)applicationDidFinishLaunching:(NSNotification *)notification
@@ -105,9 +87,6 @@ static OSStatus MyRenderer(void *							inRefCon,
 	_phaseIncrement = round(note * 16384.0 / 44100.0);
     NSLog(@"phaseIncrement: %u", _phaseIncrement);
 
-    _dphase = 0;
-    _dphaseIncrement = (note * M_PI *2) / 44100.0;
-    
     _graph = [[DDAudioUnitGraph alloc] init];
     
     _outputNode = [_graph addNodeWithType:kAudioUnitType_Output

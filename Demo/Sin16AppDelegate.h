@@ -17,9 +17,6 @@
     uint64_t _frameCount;
     dd_sin16_angle_t _phase;
     dd_sin16_angle_t _phaseIncrement;
-    
-    double _dphase;
-    double _dphaseIncrement;
 }
 
 @property (assign) IBOutlet NSWindow *window;
