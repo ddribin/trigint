@@ -11,7 +11,6 @@
     DDAudioUnitGraph * _graph;
     DDAudioUnitNode * _outputNode;
     DDAudioUnitNode * _converterNode;
-    DDAudioUnit * _converterUnit;
     
     uint64_t _renderCount;
     uint64_t _frameCount;

@@ -97,26 +97,25 @@ static OSStatus MyRenderer(void *							inRefCon,
     [_graph open];
     
     // 16-bit signed integer, stereo
-    AudioStreamBasicDescription _dataFormat = {0};
+    AudioStreamBasicDescription streamFormat = {0};
     UInt32 formatFlags = (0
                           | kAudioFormatFlagIsPacked 
                           | kAudioFormatFlagIsSignedInteger 
                           | kAudioFormatFlagsNativeEndian
                           );
     
-    _dataFormat.mFormatID = kAudioFormatLinearPCM;
-    _dataFormat.mSampleRate = 44100;
-    _dataFormat.mChannelsPerFrame = 2;
-    _dataFormat.mFormatFlags = formatFlags;
-    _dataFormat.mBitsPerChannel = 16;
-    _dataFormat.mFramesPerPacket = 1;
-    _dataFormat.mBytesPerFrame = _dataFormat.mBitsPerChannel * _dataFormat.mChannelsPerFrame / 8;
-    _dataFormat.mBytesPerPacket = _dataFormat.mBytesPerFrame * _dataFormat.mFramesPerPacket;
-    _converterUnit = [[_converterNode audioUnit] retain];
-    [_converterUnit setStreamFormatWithDescription:&_dataFormat];
+    streamFormat.mFormatID = kAudioFormatLinearPCM;
+    streamFormat.mSampleRate = 44100;
+    streamFormat.mChannelsPerFrame = 2;
+    streamFormat.mFormatFlags = formatFlags;
+    streamFormat.mBitsPerChannel = 16;
+    streamFormat.mFramesPerPacket = 1;
+    streamFormat.mBytesPerFrame = streamFormat.mBitsPerChannel * streamFormat.mChannelsPerFrame / 8;
+    streamFormat.mBytesPerPacket = streamFormat.mBytesPerFrame * streamFormat.mFramesPerPacket;
+    DDAudioUnit * converterUnit = [_converterNode audioUnit];
+    [converterUnit setStreamFormatWithDescription:&streamFormat];
     
-    [_graph setInputCallback:MyRenderer context:self
-                     forNode:_converterNode input:0];
+    [_converterNode setInputCallback:MyRenderer context:self forInput:0];
     
     [_graph show];
     
