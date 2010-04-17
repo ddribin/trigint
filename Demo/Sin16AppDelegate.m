@@ -61,7 +61,7 @@ static OSStatus MyRenderer(void *							inRefCon,
         frame[0] = sineValue;
         frame[1] = sineValue;
         
-        self->_phase = self->_phase + self->_phaseIncrement;
+        self->_phase += self->_phaseIncrement;
         self->_frameCount++;
         frame += 2;
     }
@@ -76,15 +76,35 @@ static OSStatus MyRenderer(void *							inRefCon,
     _renderCount = 0;
 }
 
+- (void)setFrequency:(double)frequency
+{
+    _frequency = frequency;
+	_phaseIncrement = round(frequency * 16384.0 / 44100.0);
+}
+
+- (double)frequency
+{
+    return _frequency;
+}
+
+- (IBAction)setFrequencyToA440:(id)sender;
+{
+    self.frequency = 440.0;
+}
+
+- (IBAction)setFrequencyToMiddleC:(id)sender;
+{
+    self.frequency = 261.626;
+}
+
 - (void)applicationDidFinishLaunching:(NSNotification *)notification
 {
     _renderCount = 0;
     _frameCount = 0;
-    [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(timerFired:) userInfo:nil repeats:YES];
+    NSTimer * timer = [NSTimer timerWithTimeInterval:1.0 target:self selector:@selector(timerFired:) userInfo:nil repeats:YES];
+    [[NSRunLoop currentRunLoop] addTimer:timer forMode:NSRunLoopCommonModes];
     
-    double note = 440.0;
-    _phase = 0;
-	_phaseIncrement = round(note * 16384.0 / 44100.0);
+    self.frequency = 440.0;
     NSLog(@"phaseIncrement: %u", _phaseIncrement);
 
     _graph = [[DDAudioUnitGraph alloc] init];

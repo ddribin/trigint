@@ -15,10 +15,16 @@
     
     uint64_t _renderCount;
     uint64_t _frameCount;
+    
+    double _frequency;
     dd_sin16_angle_t _phase;
     dd_sin16_angle_t _phaseIncrement;
 }
 
 @property (assign) IBOutlet NSWindow *window;
+@property (nonatomic) double frequency;
+
+- (IBAction)setFrequencyToA440:(id)sender;
+- (IBAction)setFrequencyToMiddleC:(id)sender;
 
 @end
