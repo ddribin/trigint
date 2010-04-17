@@ -117,7 +117,7 @@ static OSStatus MyRenderer(void *							inRefCon,
     
     [_converterNode setInputCallback:MyRenderer context:self forInput:0];
     
-    [_graph show];
+    NSLog(@"graph: %@", _graph);
     
     [_graph update];
     [_graph initialize];
