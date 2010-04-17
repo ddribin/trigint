@@ -26,5 +26,6 @@
 
 - (IBAction)setFrequencyToA440:(id)sender;
 - (IBAction)setFrequencyToMiddleC:(id)sender;
+- (IBAction)playPause:(id)sender;
 
 @end

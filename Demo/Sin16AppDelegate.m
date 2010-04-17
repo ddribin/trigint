@@ -70,33 +70,6 @@ static OSStatus MyRenderer(void *							inRefCon,
     return noErr;
 }
 
-- (void)timerFired:(NSTimer *)timer
-{
-    NSLog(@"calls per second: %u, frames: %llu", _renderCount, _frameCount);
-    _renderCount = 0;
-}
-
-- (void)setFrequency:(double)frequency
-{
-    _frequency = frequency;
-	_phaseIncrement = round(frequency * 16384.0 / 44100.0);
-}
-
-- (double)frequency
-{
-    return _frequency;
-}
-
-- (IBAction)setFrequencyToA440:(id)sender;
-{
-    self.frequency = 440.0;
-}
-
-- (IBAction)setFrequencyToMiddleC:(id)sender;
-{
-    self.frequency = 261.626;
-}
-
 - (void)applicationDidFinishLaunching:(NSNotification *)notification
 {
     _renderCount = 0;
@@ -150,6 +123,42 @@ static OSStatus MyRenderer(void *							inRefCon,
     [_graph update];
     [_graph initialize];
     [_graph start];
+}
+
+- (void)timerFired:(NSTimer *)timer
+{
+    NSLog(@"calls per second: %u, frames: %llu", _renderCount, _frameCount);
+    _renderCount = 0;
+}
+
+- (void)setFrequency:(double)frequency
+{
+    _frequency = frequency;
+	_phaseIncrement = round(frequency * 16384.0 / 44100.0);
+}
+
+- (double)frequency
+{
+    return _frequency;
+}
+
+- (IBAction)setFrequencyToA440:(id)sender;
+{
+    self.frequency = 440.0;
+}
+
+- (IBAction)setFrequencyToMiddleC:(id)sender;
+{
+    self.frequency = 261.626;
+}
+
+- (IBAction)playPause:(id)sender;
+{
+    if ([_graph isRunning]) {
+        [_graph stop];
+    } else {
+        [_graph start];
+    }
 }
 
 @end
