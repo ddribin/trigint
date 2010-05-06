@@ -12,6 +12,7 @@
 typedef uint16_t dd_sin16_angle_t;
 
 #define DD_SIN16_ANGLE_MAX 0x3FFF
+#define DD_SIN16_ANGLES_PER_CYCLE 0x4000
 
 dd_sin16_angle_t dd_sin16_degrees_to_angle_d(double degrees);
 dd_sin16_angle_t dd_sin16_degrees_to_angle_i(int degrees);
@@ -47,4 +48,4 @@ void dd_sin16_init();
 
 #endif
 
-#endif _DD_SIN16_H_
+#endif // _DD_SIN16_H_

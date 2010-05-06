@@ -25,7 +25,6 @@
 # error Invalid sine widths
 #endif
  
-#define SINE_INTERP_PHASE_WIDTH (2 - SINE_INDEX_WIDTH - SINE_INTERP_WIDTH)
 #define SINE_INDEX_OFFSET (12 - SINE_INDEX_WIDTH)
 #define SINE_INTERP_OFFSET (SINE_INDEX_OFFSET - SINE_INTERP_WIDTH)
 
@@ -152,7 +151,7 @@ void dd_sin16_table_gen()
 	for (int i = 0; i < SINE_TABLE_COUNT; i++) {
 		double radians = i * M_PI_2 / SINE_TABLE_SIZE;
 		double sinValue = 32767.0 * sin(radians);
-		int16_t tableValue = sinValue;
+		int16_t tableValue = round(sinValue);
 		printf("%s%5d", sep, tableValue);
         if (((i+1) % 8) == 0) {
             sep = ",\n";
@@ -170,7 +169,7 @@ void dd_sin16_init()
 	for (int i = 0; i < SINE_TABLE_COUNT; i++) {
 		double radians = i * M_PI_2 / SINE_TABLE_SIZE;
 		double sinValue = 32767.0 * sin(radians);
-		int16_t tableValue = sinValue;
+		int16_t tableValue = round(sinValue);
         dd_sine16_table[i] = tableValue;
 	}
 }

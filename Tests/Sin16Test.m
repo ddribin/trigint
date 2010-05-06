@@ -30,16 +30,16 @@
 
 - (void)testSin16WithNoInterpolation
 {
-    STAssertEquals([self sin16:0],     [self sin:0], nil);
-    STAssertEquals([self sin16:90.0],  [self sin:90.0], nil);
-    STAssertEquals([self sin16:180.0], [self sin:180.0], nil);
-    STAssertEquals([self sin16:270.0], [self sin:270.0], nil);
-    STAssertEquals([self sin16:360.0], [self sin:360.0], nil);
+    STAssertEquals([self sin16:0],     (int16_t)0, nil);
+    STAssertEquals([self sin16:90.0],  (int16_t)32767, nil);
+    STAssertEquals([self sin16:180.0], (int16_t)0, nil);
+    STAssertEquals([self sin16:270.0], (int16_t)-32767, nil);
+    STAssertEquals([self sin16:360.0], (int16_t)0, nil);
 }
 
 - (void)assertSineWithinError:(double)degrees
 {
-    static const int accuracy = 50;
+    static const int accuracy = 42;
     int16_t value = [self sin16:degrees];
     int16_t expected = [self sin:degrees];
     int16_t error = abs(value - expected);
