@@ -10,9 +10,6 @@
 #include "trigint_sin8.h"
 #include <stdbool.h>
 
-#define SINE_INDEX_WIDTH 4
-#define SINE_INTERP_WIDTH 4
-
 /*
  * Implementation based off of:
  * http://www.dattalo.com/technical/software/pic/picsine.html
@@ -25,6 +22,9 @@
  * I - Interpolation between successive entries in the table, SINE_INTERP_WIDTH.
  * P - Phase accumalation, may be zero width. Used for rounding.
  */
+
+#define SINE_INDEX_WIDTH 4
+#define SINE_INTERP_WIDTH 4
 
 #if (SINE_INDEX_WIDTH + SINE_INTERP_WIDTH > 12)
 # error Invalid sine widths
@@ -47,10 +47,10 @@
 #define SINE_TABLE_SIZE (1 << SINE_INDEX_WIDTH)
 
 #ifndef TRIGINT_SIN8_STATIC_TABLE
-# define TRIGINT_SIN8U_STATIC_TABLE 1
+# define TRIGINT_SIN8_STATIC_TABLE 1
 #endif
 
-#if TRIGINT_SIN8U_STATIC_TABLE
+#if TRIGINT_SIN8_STATIC_TABLE
 
 // Table of the first quadrant values.  Size is + 1 to store the first value of
 // the second quadrant, hence we're storing 0 <= degrees <= 90.
@@ -118,10 +118,10 @@ uint8_t trigint_sin8u(trigint_angle_t angle)
 extern int8_t trigint_sin8(trigint_angle_t angle);
 
 
-#if !TRIGINT_SIN8U_STATIC_TABLE
+#if !TRIGINT_SIN8_STATIC_TABLE
 #include <math.h>
 
-void trigint_sin8u_init()
+void trigint_sin8_init()
 {
 	for (int i = 0; i < SINE_TABLE_COUNT; i++) {
 		double radians = i * M_PI_2 / SINE_TABLE_SIZE;

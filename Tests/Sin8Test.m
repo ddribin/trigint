@@ -25,19 +25,13 @@ void trigint_sin8u_dump_table()
 
 @implementation Sin8Test
 
-// #if !TRIGINT_SIN16_STATIC_TABLE
 - (void)setUp
 {
 #if !TRIGINT_SIN8_STATIC_TABLE
-    trigint_sin8u_init();
+    trigint_sin8_init();
+#endif
     trigint_sin8u_dump_table();
-#endif
-    
-#if 0
-    trigint_sin8_table_gen();
-#endif
 }
-// #endif
 
 - (uint8_t)sin:(double)degrees
 {

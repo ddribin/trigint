@@ -9,15 +9,16 @@
 
 
 #include <stdio.h>
+#include <stdint.h>
 #include <math.h>
 #include "trigint.h"
 
 void trigint_sin8_table_gen()
 {
-    int sine_table_size = trigint_sin8u_table_size();
+    const int table_size = trigint_sin8u_table_size();
     char * sep = "";
-	for (int i = 0; i < sine_table_size; i++) {
-		double radians = i * M_PI_2 / (sine_table_size - 1);
+	for (int i = 0; i < table_size; i++) {
+		double radians = i * M_PI_2 / (table_size - 1);
 		double sinValue = 127.0 * sin(radians) + 128.0;
 		uint8_t tableValue = round(sinValue);
 		printf("%s%3d", sep, tableValue);
@@ -33,10 +34,10 @@ void trigint_sin8_table_gen()
 
 void trigint_sin16_table_gen()
 {
-    int sine_table_size = trigint_sin16_table_size();
+    const int table_size = trigint_sin16_table_size();
     char * sep = "";
-	for (int i = 0; i < sine_table_size; i++) {
-		double radians = i * M_PI_2 / (sine_table_size - 1);
+	for (int i = 0; i < table_size; i++) {
+		double radians = i * M_PI_2 / (table_size - 1);
 		double sinValue = 32767.0 * sin(radians);
 		int16_t tableValue = round(sinValue);
 		printf("%s%5d", sep, tableValue);

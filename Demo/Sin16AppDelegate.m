@@ -7,35 +7,8 @@
 
 - (void)dumpTables
 {
-#if !DD_SIN16_STATIC_TABLE
-    dd_sin16_init();
-#endif
-    
-#if 0
-    dd_sin16_table();
-#endif
-    
-#if 0
-    extern void dd_sin16_dump_table();
-    dd_sin16_dump_table();
-    printf("\n");
-#endif
-    
-#if 0
-    for (trigint_angle_t angle = 0x0000; angle <= 0x1000; angle += 0x0001) {
-        double degrees = trigint_angle_to_degrees_d(angle);
-        int16_t value = dd_sin16(angle);
-        printf("%.3f, %d\n", degrees, value);
-    }
-    printf("\n");
-#endif
-    
-#if 0
-    for (double degrees = 0.0; degrees <= 90.0; degrees += 0.1) {
-        trigint_angle_t angle = trigint_degrees_to_angle_d(degrees);
-        int16_t value = dd_sin16(angle);
-        printf("%.3f, %d\n", degrees, value);
-    }
+#if !TRIGINT_SIN16_STATIC_TABLE
+    trigint_sin16_init();
 #endif
 }
 
@@ -71,6 +44,13 @@ static OSStatus MyRenderer(void *							inRefCon,
 
 - (void)applicationDidFinishLaunching:(NSNotification *)notification
 {
+#if !TRIGINT_SIN16_STATIC_TABLE
+    trigint_sin16_init();
+#endif
+#if !TRIGINT_SIN8_STATIC_TABLE
+    trigint_sin8_init();
+#endif
+    
     _renderCount = 0;
     _frameCount = 0;
     NSTimer * timer = [NSTimer timerWithTimeInterval:1.0 target:self selector:@selector(timerFired:) userInfo:nil repeats:YES];

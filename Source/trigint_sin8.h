@@ -19,7 +19,7 @@ int trigint_sin8u_table_size();
 uint8_t trigint_sin8u_table_lookup(int index);
 
 #ifndef TRIGINT_SIN8_STATIC_TABLE
-# define TRIGINT_SIN8_STATIC_TABLE 0
+# define TRIGINT_SIN8_STATIC_TABLE 1
 #endif
 
 #if !TRIGINT_SIN8_STATIC_TABLE
@@ -28,7 +28,7 @@ uint8_t trigint_sin8u_table_lookup(int index);
  * Initialize the dynamic table. Must be called before any calls to
  * trigint_sin8u() or trigint_sin8().
  */
-void trigint_sin8u_init();
+void trigint_sin8_init();
 
 #endif
 

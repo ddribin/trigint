@@ -398,12 +398,12 @@
 		55EFE89411774FDC00E2F8B6 /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				55151623119288F10030C8FF /* trigint.h */,
+				55151627119289300030C8FF /* trigint_types.h */,
 				55EFE89511774FED00E2F8B6 /* trigint_sin16.h */,
 				55EFE89611774FED00E2F8B6 /* trigint_sin16.c */,
 				55151470119128A40030C8FF /* trigint_sin8.h */,
 				55151471119128A40030C8FF /* trigint_sin8.c */,
-				55151623119288F10030C8FF /* trigint.h */,
-				55151627119289300030C8FF /* trigint_types.h */,
 				5515162B119289B10030C8FF /* trigint_conversions.h */,
 				5515169311928E7D0030C8FF /* trigint_conversions.c */,
 			);

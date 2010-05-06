@@ -3,13 +3,6 @@
 #include "trigint_sin16.h"
 #include <stdbool.h>
 
-#include <math.h>
-#include <stdio.h>
-
-
-#define SINE_INDEX_WIDTH 4
-#define SINE_INTERP_WIDTH 8
-
 /*
  * Implementation based off of:
  * http://www.dattalo.com/technical/software/pic/picsine.html
@@ -22,6 +15,9 @@
  * I - Interpolation between successive entries in the table, SINE_INTERP_WIDTH.
  * P - Phase accumalation, may be zero width. Used for rounding.
  */
+
+#define SINE_INDEX_WIDTH 4
+#define SINE_INTERP_WIDTH 8
 
 #if (SINE_INDEX_WIDTH + SINE_INTERP_WIDTH > 12)
 # error Invalid sine widths

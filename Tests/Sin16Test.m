@@ -19,10 +19,10 @@ void trigint_sin16_dump_table()
 
 @implementation Sin16Test
 
-#if !DD_SIN16_STATIC_TABLE
+#if !TRIGINT_SIN16_STATIC_TABLE
 - (void)setUp
 {
-    dd_sin16_init();
+    trigint_sin16_init();
 }
 #endif
 
