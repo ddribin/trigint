@@ -29,16 +29,19 @@
 		256AC3DA0F4B6AC300CF3369 /* Sin16AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 256AC3D90F4B6AC300CF3369 /* Sin16AppDelegate.m */; };
 		5515139A118F04660030C8FF /* error_main.c in Sources */ = {isa = PBXBuildFile; fileRef = 55151399118F04660030C8FF /* error_main.c */; };
 		5515146F1191284E0030C8FF /* Sin8Test.m in Sources */ = {isa = PBXBuildFile; fileRef = 5515146E1191284E0030C8FF /* Sin8Test.m */; };
-		551515C91192861A0030C8FF /* dd_sin16.c in Sources */ = {isa = PBXBuildFile; fileRef = 55EFE89611774FED00E2F8B6 /* dd_sin16.c */; };
-		551515CA1192861A0030C8FF /* dd_sin8.c in Sources */ = {isa = PBXBuildFile; fileRef = 55151471119128A40030C8FF /* dd_sin8.c */; };
-		551515CE119286290030C8FF /* dd_sin16.h in Headers */ = {isa = PBXBuildFile; fileRef = 55EFE89511774FED00E2F8B6 /* dd_sin16.h */; };
-		551515CF119286290030C8FF /* dd_sin8.h in Headers */ = {isa = PBXBuildFile; fileRef = 55151470119128A40030C8FF /* dd_sin8.h */; };
+		551515C91192861A0030C8FF /* trigint_sin16.c in Sources */ = {isa = PBXBuildFile; fileRef = 55EFE89611774FED00E2F8B6 /* trigint_sin16.c */; };
+		551515CA1192861A0030C8FF /* trigint_sin8.c in Sources */ = {isa = PBXBuildFile; fileRef = 55151471119128A40030C8FF /* trigint_sin8.c */; };
+		551515CE119286290030C8FF /* trigint_sin16.h in Headers */ = {isa = PBXBuildFile; fileRef = 55EFE89511774FED00E2F8B6 /* trigint_sin16.h */; };
+		551515CF119286290030C8FF /* trigint_sin8.h in Headers */ = {isa = PBXBuildFile; fileRef = 55151470119128A40030C8FF /* trigint_sin8.h */; };
 		551515D0119286370030C8FF /* libtrigint.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 551515BE119285DB0030C8FF /* libtrigint.a */; };
 		551515D1119286430030C8FF /* libtrigint.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 551515BE119285DB0030C8FF /* libtrigint.a */; };
 		551515D2119286480030C8FF /* libtrigint.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 551515BE119285DB0030C8FF /* libtrigint.a */; };
 		551515D31192864F0030C8FF /* libtrigint.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 551515BE119285DB0030C8FF /* libtrigint.a */; };
 		551515F3119286D10030C8FF /* table_gen.c in Sources */ = {isa = PBXBuildFile; fileRef = 551515F2119286D10030C8FF /* table_gen.c */; };
 		55151604119287770030C8FF /* libtrigint.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 551515BE119285DB0030C8FF /* libtrigint.a */; };
+		55151624119288F10030C8FF /* trigint.h in Headers */ = {isa = PBXBuildFile; fileRef = 55151623119288F10030C8FF /* trigint.h */; };
+		55151628119289300030C8FF /* trigint_types.h in Headers */ = {isa = PBXBuildFile; fileRef = 55151627119289300030C8FF /* trigint_types.h */; };
+		5515162C119289B10030C8FF /* trigint_conversions.h in Headers */ = {isa = PBXBuildFile; fileRef = 5515162B119289B10030C8FF /* trigint_conversions.h */; };
 		55508A131177FF2400ADA67D /* Sin16Test.m in Sources */ = {isa = PBXBuildFile; fileRef = 55508A121177FF2400ADA67D /* Sin16Test.m */; };
 		55508B0B117801AC00ADA67D /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55508B0A117801AC00ADA67D /* SenTestingKit.framework */; };
 		55508B9C11780A4E00ADA67D /* Sin16Conversions.m in Sources */ = {isa = PBXBuildFile; fileRef = 55508B9B11780A4E00ADA67D /* Sin16Conversions.m */; };
@@ -154,11 +157,14 @@
 		55151399118F04660030C8FF /* error_main.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = error_main.c; sourceTree = "<group>"; };
 		5515146D1191284E0030C8FF /* Sin8Test.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Sin8Test.h; sourceTree = "<group>"; };
 		5515146E1191284E0030C8FF /* Sin8Test.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Sin8Test.m; sourceTree = "<group>"; };
-		55151470119128A40030C8FF /* dd_sin8.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = dd_sin8.h; sourceTree = "<group>"; };
-		55151471119128A40030C8FF /* dd_sin8.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = dd_sin8.c; sourceTree = "<group>"; };
+		55151470119128A40030C8FF /* trigint_sin8.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = trigint_sin8.h; sourceTree = "<group>"; };
+		55151471119128A40030C8FF /* trigint_sin8.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = trigint_sin8.c; sourceTree = "<group>"; };
 		551515BE119285DB0030C8FF /* libtrigint.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libtrigint.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		551515EC119286B80030C8FF /* table_gen */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = table_gen; sourceTree = BUILT_PRODUCTS_DIR; };
 		551515F2119286D10030C8FF /* table_gen.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = table_gen.c; sourceTree = "<group>"; };
+		55151623119288F10030C8FF /* trigint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = trigint.h; sourceTree = "<group>"; };
+		55151627119289300030C8FF /* trigint_types.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = trigint_types.h; sourceTree = "<group>"; };
+		5515162B119289B10030C8FF /* trigint_conversions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = trigint_conversions.h; sourceTree = "<group>"; };
 		55508A091177FED900ADA67D /* UnitTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UnitTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		55508A101177FEF900ADA67D /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		55508A111177FF2400ADA67D /* Sin16Test.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Sin16Test.h; sourceTree = "<group>"; };
@@ -170,8 +176,8 @@
 		55B894F9118717DA00FEB15C /* benchmark */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = benchmark; sourceTree = BUILT_PRODUCTS_DIR; };
 		55B895AC118727EA00FEB15C /* benchmark.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = benchmark.h; sourceTree = "<group>"; };
 		55B895AD118727EA00FEB15C /* benchmark.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = benchmark.m; sourceTree = "<group>"; };
-		55EFE89511774FED00E2F8B6 /* dd_sin16.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = dd_sin16.h; sourceTree = "<group>"; };
-		55EFE89611774FED00E2F8B6 /* dd_sin16.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = dd_sin16.c; sourceTree = "<group>"; };
+		55EFE89511774FED00E2F8B6 /* trigint_sin16.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = trigint_sin16.h; sourceTree = "<group>"; };
+		55EFE89611774FED00E2F8B6 /* trigint_sin16.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = trigint_sin16.c; sourceTree = "<group>"; };
 		55EFE992117941CB00E2F8B6 /* DDAudioComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDAudioComponent.h; sourceTree = "<group>"; };
 		55EFE993117941CB00E2F8B6 /* DDAudioComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDAudioComponent.m; sourceTree = "<group>"; };
 		55EFE994117941CB00E2F8B6 /* DDAudioException.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDAudioException.h; sourceTree = "<group>"; };
@@ -390,10 +396,13 @@
 		55EFE89411774FDC00E2F8B6 /* Source */ = {
 			isa = PBXGroup;
 			children = (
-				55EFE89511774FED00E2F8B6 /* dd_sin16.h */,
-				55EFE89611774FED00E2F8B6 /* dd_sin16.c */,
-				55151470119128A40030C8FF /* dd_sin8.h */,
-				55151471119128A40030C8FF /* dd_sin8.c */,
+				55EFE89511774FED00E2F8B6 /* trigint_sin16.h */,
+				55EFE89611774FED00E2F8B6 /* trigint_sin16.c */,
+				55151470119128A40030C8FF /* trigint_sin8.h */,
+				55151471119128A40030C8FF /* trigint_sin8.c */,
+				55151623119288F10030C8FF /* trigint.h */,
+				55151627119289300030C8FF /* trigint_types.h */,
+				5515162B119289B10030C8FF /* trigint_conversions.h */,
 			);
 			path = Source;
 			sourceTree = "<group>";
@@ -441,8 +450,11 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				551515CE119286290030C8FF /* dd_sin16.h in Headers */,
-				551515CF119286290030C8FF /* dd_sin8.h in Headers */,
+				551515CE119286290030C8FF /* trigint_sin16.h in Headers */,
+				551515CF119286290030C8FF /* trigint_sin8.h in Headers */,
+				55151624119288F10030C8FF /* trigint.h in Headers */,
+				55151628119289300030C8FF /* trigint_types.h in Headers */,
+				5515162C119289B10030C8FF /* trigint_conversions.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -642,8 +654,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				551515C91192861A0030C8FF /* dd_sin16.c in Sources */,
-				551515CA1192861A0030C8FF /* dd_sin8.c in Sources */,
+				551515C91192861A0030C8FF /* trigint_sin16.c in Sources */,
+				551515CA1192861A0030C8FF /* trigint_sin8.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

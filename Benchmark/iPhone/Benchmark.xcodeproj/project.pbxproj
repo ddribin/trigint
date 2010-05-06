@@ -13,7 +13,7 @@
 		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
 		288765FD0DF74451002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765FC0DF74451002DB57D /* CoreGraphics.framework */; };
 		28AD733F0D9D9553002E5188 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28AD733E0D9D9553002E5188 /* MainWindow.xib */; };
-		558D6A52118774BB0076F130 /* dd_sin16.c in Sources */ = {isa = PBXBuildFile; fileRef = 558D6A50118774BB0076F130 /* dd_sin16.c */; };
+		558D6A52118774BB0076F130 /* trigint_sin16.c in Sources */ = {isa = PBXBuildFile; fileRef = 558D6A50118774BB0076F130 /* trigint_sin16.c */; };
 		558D6A55118774CC0076F130 /* benchmark.m in Sources */ = {isa = PBXBuildFile; fileRef = 558D6A54118774CC0076F130 /* benchmark.m */; };
 /* End PBXBuildFile section */
 
@@ -27,8 +27,8 @@
 		28AD733E0D9D9553002E5188 /* MainWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainWindow.xib; sourceTree = "<group>"; };
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		32CA4F630368D1EE00C91783 /* Benchmark_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Benchmark_Prefix.pch; sourceTree = "<group>"; };
-		558D6A50118774BB0076F130 /* dd_sin16.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = dd_sin16.c; path = ../../Source/dd_sin16.c; sourceTree = SOURCE_ROOT; };
-		558D6A51118774BB0076F130 /* dd_sin16.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = dd_sin16.h; path = ../../Source/dd_sin16.h; sourceTree = SOURCE_ROOT; };
+		558D6A50118774BB0076F130 /* trigint_sin16.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = trigint_sin16.c; path = ../../Source/trigint_sin16.c; sourceTree = SOURCE_ROOT; };
+		558D6A51118774BB0076F130 /* trigint_sin16.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = trigint_sin16.h; path = ../../Source/trigint_sin16.h; sourceTree = SOURCE_ROOT; };
 		558D6A53118774CC0076F130 /* benchmark.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = benchmark.h; path = ../benchmark.h; sourceTree = SOURCE_ROOT; };
 		558D6A54118774CC0076F130 /* benchmark.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = benchmark.m; path = ../benchmark.m; sourceTree = SOURCE_ROOT; };
 		8D1107310486CEB800E47090 /* Benchmark-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Benchmark-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
@@ -53,8 +53,8 @@
 			children = (
 				1D3623240D0F684500981E51 /* BenchmarkAppDelegate.h */,
 				1D3623250D0F684500981E51 /* BenchmarkAppDelegate.m */,
-				558D6A50118774BB0076F130 /* dd_sin16.c */,
-				558D6A51118774BB0076F130 /* dd_sin16.h */,
+				558D6A50118774BB0076F130 /* trigint_sin16.c */,
+				558D6A51118774BB0076F130 /* trigint_sin16.h */,
 				558D6A53118774CC0076F130 /* benchmark.h */,
 				558D6A54118774CC0076F130 /* benchmark.m */,
 			);
@@ -164,7 +164,7 @@
 			files = (
 				1D60589B0D05DD56006BFB54 /* main.m in Sources */,
 				1D3623260D0F684500981E51 /* BenchmarkAppDelegate.m in Sources */,
-				558D6A52118774BB0076F130 /* dd_sin16.c in Sources */,
+				558D6A52118774BB0076F130 /* trigint_sin16.c in Sources */,
 				558D6A55118774CC0076F130 /* benchmark.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

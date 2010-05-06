@@ -8,8 +8,8 @@
 
 #import "Sin8Test.h"
 
-#import "Sin16Test.h"
-#include "dd_sin8.h"
+#include "trigint_sin8.h"
+#include "trigint_conversions.h"
 #include <math.h>
 
 void trigint_sin8u_dump_table()

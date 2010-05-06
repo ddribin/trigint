@@ -7,7 +7,7 @@
  *
  */
 
-#include "dd_sin8.h"
+#include "trigint_sin8.h"
 #include <stdbool.h>
 
 #define SINE_INDEX_WIDTH 4

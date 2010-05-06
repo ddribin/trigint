@@ -1,9 +1,8 @@
-#ifndef _DD_SIN8_H_
-#define _DD_SIN8_H_
+#ifndef _TRIGINT_SIN8_H_
+#define _TRIGINT_SIN8_H_
 
-#include "dd_sin16.h"
+#include "trigint_types.h"
 
-typedef dd_sin16_angle_t trigint_angle_t;
 
 /**
  * Returns the sine of angle as an unsigned 8-bit integer. It is scaled to an

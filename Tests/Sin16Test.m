@@ -1,7 +1,8 @@
 //
 
 #import "Sin16Test.h"
-#include "dd_sin16.h"
+#include "trigint_sin16.h"
+#include "trigint_conversions.h"
 #include <math.h>
 
 

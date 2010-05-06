@@ -7,7 +7,7 @@
  *
  */
 
-#include "dd_sin16.h"
+#include "trigint.h"
 #include "benchmark.h"
 #include <math.h>
 #include <limits.h>

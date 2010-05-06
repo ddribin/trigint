@@ -7,7 +7,7 @@
 //
 
 #import "benchmark.h"
-#include "dd_sin16.h"
+#include "trigint.h"
 #include <math.h>
 
 static uint64_t gSum;

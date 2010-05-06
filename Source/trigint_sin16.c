@@ -1,4 +1,6 @@
-#include "dd_sin16.h"
+//
+
+#include "trigint_sin16.h"
 #include <stdbool.h>
 
 #include <math.h>
@@ -68,7 +70,17 @@ int16_t dd_sine16_table[SINE_TABLE_SIZE + 1];
 #define BITS(_VALUE_, _WIDTH_, _BIT_) (((_VALUE_) >> (_BIT_)) & ((1 << (_WIDTH_)) - 1))
 
 
-int16_t dd_sin16(dd_sin16_angle_t angle)
+int trigint_sin16_table_size()
+{
+    return SINE_TABLE_COUNT;
+}
+
+int16_t trigint_sin16_table_lookup(int index)
+{
+    return dd_sine16_table[index];
+}
+
+int16_t dd_sin16(trigint_angle_t angle)
 {
     angle += SINE_ROUNDING;
 	int32_t interp = BITS(angle, SINE_INTERP_WIDTH, SINE_INTERP_OFFSET);
@@ -144,23 +156,6 @@ double dd_sin16_angle_to_radians_d(dd_sin16_angle_t angle)
 }
 
 #pragma mark -
-
-void dd_sin16_table_gen()
-{
-    char * sep = "";
-	for (int i = 0; i < SINE_TABLE_COUNT; i++) {
-		double radians = i * M_PI_2 / SINE_TABLE_SIZE;
-		double sinValue = 32767.0 * sin(radians);
-		int16_t tableValue = round(sinValue);
-		printf("%s%5d", sep, tableValue);
-        if (((i+1) % 8) == 0) {
-            sep = ",\n";
-        } else {
-            sep = ", ";
-        }
-
-	}
-}
 
 #if !DD_SIN16_STATIC_TABLE
 
