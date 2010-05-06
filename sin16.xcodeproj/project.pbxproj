@@ -42,6 +42,7 @@
 		55151624119288F10030C8FF /* trigint.h in Headers */ = {isa = PBXBuildFile; fileRef = 55151623119288F10030C8FF /* trigint.h */; };
 		55151628119289300030C8FF /* trigint_types.h in Headers */ = {isa = PBXBuildFile; fileRef = 55151627119289300030C8FF /* trigint_types.h */; };
 		5515162C119289B10030C8FF /* trigint_conversions.h in Headers */ = {isa = PBXBuildFile; fileRef = 5515162B119289B10030C8FF /* trigint_conversions.h */; };
+		5515169411928E7D0030C8FF /* trigint_conversions.c in Sources */ = {isa = PBXBuildFile; fileRef = 5515169311928E7D0030C8FF /* trigint_conversions.c */; };
 		55508A131177FF2400ADA67D /* Sin16Test.m in Sources */ = {isa = PBXBuildFile; fileRef = 55508A121177FF2400ADA67D /* Sin16Test.m */; };
 		55508B0B117801AC00ADA67D /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55508B0A117801AC00ADA67D /* SenTestingKit.framework */; };
 		55508B9C11780A4E00ADA67D /* Sin16Conversions.m in Sources */ = {isa = PBXBuildFile; fileRef = 55508B9B11780A4E00ADA67D /* Sin16Conversions.m */; };
@@ -165,6 +166,7 @@
 		55151623119288F10030C8FF /* trigint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = trigint.h; sourceTree = "<group>"; };
 		55151627119289300030C8FF /* trigint_types.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = trigint_types.h; sourceTree = "<group>"; };
 		5515162B119289B10030C8FF /* trigint_conversions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = trigint_conversions.h; sourceTree = "<group>"; };
+		5515169311928E7D0030C8FF /* trigint_conversions.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = trigint_conversions.c; sourceTree = "<group>"; };
 		55508A091177FED900ADA67D /* UnitTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UnitTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		55508A101177FEF900ADA67D /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		55508A111177FF2400ADA67D /* Sin16Test.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Sin16Test.h; sourceTree = "<group>"; };
@@ -403,6 +405,7 @@
 				55151623119288F10030C8FF /* trigint.h */,
 				55151627119289300030C8FF /* trigint_types.h */,
 				5515162B119289B10030C8FF /* trigint_conversions.h */,
+				5515169311928E7D0030C8FF /* trigint_conversions.c */,
 			);
 			path = Source;
 			sourceTree = "<group>";
@@ -586,11 +589,11 @@
 			projectRoot = "";
 			targets = (
 				55508CE41178153100ADA67D /* All */,
+				551515BD119285DB0030C8FF /* trigint */,
 				8D1107260486CEB800E47090 /* sin16 */,
 				55508A081177FED900ADA67D /* UnitTests */,
 				55B894F8118717DA00FEB15C /* benchmark */,
 				55151393118F04520030C8FF /* error */,
-				551515BD119285DB0030C8FF /* trigint */,
 				551515EB119286B80030C8FF /* table_gen */,
 			);
 		};
@@ -656,6 +659,7 @@
 			files = (
 				551515C91192861A0030C8FF /* trigint_sin16.c in Sources */,
 				551515CA1192861A0030C8FF /* trigint_sin8.c in Sources */,
+				5515169411928E7D0030C8FF /* trigint_conversions.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -878,7 +882,6 @@
 				GCC_MODEL_TUNING = G5;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = Sin16_Prefix.pch;
 				GCC_PREPROCESSOR_DEFINITIONS = "DD_SIN16_STATIC_TABLE=1";
 				INFOPLIST_FILE = Tests/Info.plist;
 				INSTALL_PATH = "$(USER_LIBRARY_DIR)/Bundles";
@@ -905,7 +908,6 @@
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
 				GCC_MODEL_TUNING = G5;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = Sin16_Prefix.pch;
 				GCC_PREPROCESSOR_DEFINITIONS = "DD_SIN16_STATIC_TABLE=1";
 				INFOPLIST_FILE = Tests/Info.plist;
 				INSTALL_PATH = "$(USER_LIBRARY_DIR)/Bundles";
@@ -953,7 +955,6 @@
 				GCC_MODEL_TUNING = G5;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = Sin16_Prefix.pch;
 				INSTALL_PATH = /usr/local/bin;
 				OTHER_LDFLAGS = (
 					"-framework",
@@ -975,7 +976,6 @@
 				GCC_ENABLE_FIX_AND_CONTINUE = NO;
 				GCC_MODEL_TUNING = G5;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = Sin16_Prefix.pch;
 				INSTALL_PATH = /usr/local/bin;
 				OTHER_LDFLAGS = (
 					"-framework",
@@ -999,7 +999,6 @@
 				GCC_MODEL_TUNING = G5;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = Sin16_Prefix.pch;
 				GCC_PREPROCESSOR_DEFINITIONS = "DD_SIN16_STATIC_TABLE=1";
 				INFOPLIST_FILE = Demo/Info.plist;
 				INSTALL_PATH = "$(HOME)/Applications";
@@ -1018,7 +1017,6 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_MODEL_TUNING = G5;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = Sin16_Prefix.pch;
 				GCC_PREPROCESSOR_DEFINITIONS = "DD_SIN16_STATIC_TABLE=1";
 				INFOPLIST_FILE = Demo/Info.plist;
 				INSTALL_PATH = "$(HOME)/Applications";
@@ -1036,6 +1034,7 @@
 				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREFIX_HEADER = Sin16_Prefix.pch;
 				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
@@ -1050,6 +1049,7 @@
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_PREFIX_HEADER = Sin16_Prefix.pch;
 				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;

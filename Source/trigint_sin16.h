@@ -8,7 +8,7 @@
  * Returns the sine of angle as signed 16-bit integer. It is scaled to an
  * amplitude of 32,767, thus values will range from -32,767 to +32,767.
  */
-int16_t dd_sin16(trigint_angle_t angle);
+int16_t trigint_sin16(trigint_angle_t angle);
 
 int trigint_sin16_table_size();
 int16_t trigint_sin16_table_lookup(int index);

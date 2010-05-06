@@ -36,7 +36,7 @@ void trigint_sin16_dump_table()
 - (int16_t)sin16:(double)degrees
 {
     trigint_angle_t angle = trigint_degrees_to_angle_d(degrees);
-    int16_t sinValue = dd_sin16(angle);
+    int16_t sinValue = trigint_sin16(angle);
     return sinValue;
 }
 

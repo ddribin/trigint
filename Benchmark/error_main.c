@@ -55,7 +55,7 @@ void bench_check_error()
 {
     for (trigint_angle_t angle = 0; angle < NUM_LOOP_ITERATIONS; angle++) {
         double radians = trigint_angle_to_radians_d(angle);
-        sin16_results[angle] = dd_sin16(angle);
+        sin16_results[angle] = trigint_sin16(angle);
         sinf_results[angle] = roundf(32767.0 * sinf(radians));
         sin_results[angle] = round(32767.0 * sin(radians));
     }

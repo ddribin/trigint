@@ -55,7 +55,7 @@ static OSStatus MyRenderer(void *							inRefCon,
 #else
     int16_t * frame = ioData->mBuffers[0].mData;
     for (NSUInteger i = 0; i < inNumberFrames; i++) {
-        int16_t sineValue = dd_sin16(self->_phase);
+        int16_t sineValue = trigint_sin16(self->_phase);
         
         frame[0] = sineValue;
         frame[1] = sineValue;
