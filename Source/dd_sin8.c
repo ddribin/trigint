@@ -55,7 +55,7 @@
 // Table of the first quadrant values.  Size is + 1 to store the first value of
 // the second quadrant, hence we're storing 0 <= degrees <= 90.
 
-static const uint8_t trigint_sine8u_table[SINE_TABLE_SIZE + 1] = {
+static const uint8_t trigint_sin8u_table[SINE_TABLE_SIZE + 1] = {
     128, 140, 153, 165, 177, 188, 199, 209,
     218, 226, 234, 240, 245, 250, 253, 254,
     255
@@ -63,11 +63,11 @@ static const uint8_t trigint_sine8u_table[SINE_TABLE_SIZE + 1] = {
 
 #else
 
-uint8_t trigint_sine8u_table[SINE_TABLE_SIZE + 1];
+static uint8_t trigint_sin8u_table[SINE_TABLE_SIZE + 1];
 
 #endif
 
-#define SINE_TABLE_COUNT (sizeof(trigint_sine8u_table)/sizeof(*trigint_sine8u_table))
+#define SINE_TABLE_COUNT (sizeof(trigint_sin8u_table)/sizeof(*trigint_sin8u_table))
 
 
 #define BITS(_VALUE_, _WIDTH_, _BIT_) (((_VALUE_) >> (_BIT_)) & ((1 << (_WIDTH_)) - 1))
@@ -79,7 +79,7 @@ int trigint_sin8u_table_size()
 
 inline uint8_t trigint_sin8u_table_lookup(int index)
 {
-    return trigint_sine8u_table[index];
+    return trigint_sin8u_table[index];
 }
 
 
@@ -126,37 +126,16 @@ uint8_t trigint_sin8u(trigint_angle_t angle)
 #endif
 
 
-#if 1
-#include <math.h>
-#include <stdio.h>
-
-
-void trigint_sin8_table_gen()
-{
-    char * sep = "";
-	for (int i = 0; i < SINE_TABLE_COUNT; i++) {
-		double radians = i * M_PI_2 / SINE_TABLE_SIZE;
-		double sinValue = 127.0 * sin(radians) + 128.0;
-		uint8_t tableValue = round(sinValue);
-		printf("%s%3d", sep, tableValue);
-        if (((i+1) % 8) == 0) {
-            sep = ",\n";
-        } else {
-            sep = ", ";
-        }
-	}
-    printf("\n");
-}
-
 #if !TRIGINT_SIN8U_STATIC_TABLE
+#include <math.h>
+
 void trigint_sin8u_init()
 {
 	for (int i = 0; i < SINE_TABLE_COUNT; i++) {
 		double radians = i * M_PI_2 / SINE_TABLE_SIZE;
 		double sinValue = 127.0 * sin(radians) + 128.0;
 		uint8_t tableValue = round(sinValue);
-        trigint_sine8u_table[i] = tableValue;
+        trigint_sin8u_table[i] = tableValue;
 	}
 }
-#endif
 #endif
