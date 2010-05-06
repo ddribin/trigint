@@ -17,7 +17,7 @@
  * Implementation based off of:
  * http://www.dattalo.com/technical/software/pic/picsine.html
  *
- * dd_sin16_angle_t is a 14-bit angle, 0 - 0x3FFFF
+ * trigint_angle_t is a 14-bit angle, 0 - 0x3FFFF
  *
  * xxQQTTTT IIIIPPPP
  * Q - Quadrant, 00 = quandrant 1, 01 = quadrant 2, etc.
@@ -82,15 +82,6 @@ inline uint8_t trigint_sin8u_table_lookup(int index)
     return trigint_sin8u_table[index];
 }
 
-
-#if 0
-uint8_t trigint_sin8u(trigint_angle_t angle)
-{
-    double radians = dd_sin16_angle_to_radians_d(angle);
-    double value = (127.0 * sin(radians)) + 128.0;
-    return round(value);
-}
-#else
 uint8_t trigint_sin8u(trigint_angle_t angle)
 {
     angle += SINE_ROUNDING;
@@ -123,7 +114,8 @@ uint8_t trigint_sin8u(trigint_angle_t angle)
     
 	return sine;
 }
-#endif
+
+extern int8_t trigint_sin8(trigint_angle_t angle);
 
 
 #if !TRIGINT_SIN8U_STATIC_TABLE

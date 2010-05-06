@@ -13,17 +13,17 @@ int16_t trigint_sin16(trigint_angle_t angle);
 int trigint_sin16_table_size();
 int16_t trigint_sin16_table_lookup(int index);
 
-#ifndef DD_SIN16_STATIC_TABLE
-# define DD_SIN16_STATIC_TABLE 1
+#ifndef TRIGINT_SIN16_STATIC_TABLE
+# define TRIGINT_SIN16_STATIC_TABLE 1
 #endif
 
-#if !DD_SIN16_STATIC_TABLE
+#if !TRIGINT_SIN16_STATIC_TABLE
 
 /**
- * Initialize the dynamic table. Must be called before any calls to dd_sin16().
+ * Initialize the dynamic table. Must be called before any calls to trigint_sin16().
  */
 void trigint_sin16_init();
 
 #endif
 
-#endif // _DD_SIN16_H_
+#endif

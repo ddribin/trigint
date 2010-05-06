@@ -43,11 +43,11 @@
 
 #define SINE_TABLE_SIZE (1 << SINE_INDEX_WIDTH)
 
-#ifndef DD_SIN16_STATIC_TABLE
-# define DD_SIN16_STATIC_TABLE 1
+#ifndef TRIGINT_SIN16_STATIC_TABLE
+# define TRIGINT_SIN16_STATIC_TABLE 1
 #endif
 
-#if DD_SIN16_STATIC_TABLE
+#if TRIGINT_SIN16_STATIC_TABLE
 
 // Table of the first quadrant values.  Size is + 1 to store the first value of
 // the second quadrant, hence we're storing 0 <= degrees <= 90.
@@ -115,7 +115,7 @@ int16_t trigint_sin16(trigint_angle_t angle)
 
 #pragma mark -
 
-#if !DD_SIN16_STATIC_TABLE
+#if !TRIGINT_SIN16_STATIC_TABLE
 
 void trigint_sin16_init()
 {
