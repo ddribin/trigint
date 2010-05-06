@@ -1,5 +1,5 @@
 #import <Cocoa/Cocoa.h>
-#import "dd_sin16.h"
+#import "trigint.h"
 
 @class DDAudioUnitGraph;
 @class DDAudioUnitNode;
@@ -16,8 +16,8 @@
     uint64_t _frameCount;
     
     double _frequency;
-    dd_sin16_angle_t _phase;
-    dd_sin16_angle_t _phaseIncrement;
+    trigint_angle_t _phase;
+    trigint_angle_t _phaseIncrement;
 }
 
 @property (assign) IBOutlet NSWindow *window;

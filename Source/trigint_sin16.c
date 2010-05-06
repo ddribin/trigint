@@ -14,7 +14,7 @@
  * Implementation based off of:
  * http://www.dattalo.com/technical/software/pic/picsine.html
  *
- * dd_sin16_angle_t is a 14-bit angle, 0 - 0x3FFFF
+ * trigint_angle_t is a 14-bit angle, 0 - 0x3FFFF
  *
  * xxQQTTTT IIIIPPPP
  * Q - Quadrant, 00 = quandrant 1, 01 = quadrant 2, etc.
@@ -60,7 +60,7 @@ static const int16_t dd_sine16_table[SINE_TABLE_SIZE + 1] = {
 
 #else
 
-int16_t dd_sine16_table[SINE_TABLE_SIZE + 1];
+static int16_t dd_sine16_table[SINE_TABLE_SIZE + 1];
 
 #endif
 
@@ -75,7 +75,7 @@ int trigint_sin16_table_size()
     return SINE_TABLE_COUNT;
 }
 
-int16_t trigint_sin16_table_lookup(int index)
+inline int16_t trigint_sin16_table_lookup(int index)
 {
     return dd_sine16_table[index];
 }
@@ -95,8 +95,8 @@ int16_t dd_sin16(trigint_angle_t angle)
 	}
 	
     // Do calculations with 32 bits since the multiplication can overflow 16 bits
-	int32_t x1 = dd_sine16_table[index];
-	int32_t x2 = dd_sine16_table[index+1];
+	int32_t x1 = trigint_sin16_table_lookup(index);
+	int32_t x2 = trigint_sin16_table_lookup(index+1);
     int32_t approximation = ((x2-x1) * interp) >> SINE_INTERP_WIDTH;
     
 	int16_t sine;
@@ -116,39 +116,39 @@ int16_t dd_sin16(trigint_angle_t angle)
 #pragma mark -
 #pragma mark Conversion Routines
 
-dd_sin16_angle_t dd_sin16_degrees_to_angle_d(double degrees)
+trigint_angle_t trigint_degrees_to_angle_d(double degrees)
 {
-	dd_sin16_angle_t angle = (dd_sin16_angle_t)((degrees * 0x4000) / 360.0);
+	trigint_angle_t angle = (trigint_angle_t)((degrees * 0x4000) / 360.0);
 	return angle;
 }
 
-dd_sin16_angle_t dd_sin16_degrees_to_angle_i(int degrees)
+trigint_angle_t trigint_degrees_to_angle_i(int degrees)
 {
-	dd_sin16_angle_t angle = (dd_sin16_angle_t)((degrees * 0x4000) / 360);
+	trigint_angle_t angle = (trigint_angle_t)((degrees * 0x4000) / 360);
 	return angle;
 }
 
-double dd_sin16_angle_to_degrees_d(dd_sin16_angle_t angle)
+double trigint_angle_to_degrees_d(trigint_angle_t angle)
 {
     double angle_d = angle;
     double degrees = angle_d * 360 / 0x4000;
     return degrees;
 }
 
-int dd_sin16_angle_to_degrees_i(dd_sin16_angle_t angle)
+int trigint_angle_to_degrees_i(trigint_angle_t angle)
 {
     int angle_i = angle;
     int degrees = angle_i * 360 / 0x4000;
     return degrees;
 }
 
-dd_sin16_angle_t dd_sin16_radians_to_angle_d(double radians)
+trigint_angle_t trigint_radians_to_angle_d(double radians)
 {
-	dd_sin16_angle_t angle = (dd_sin16_angle_t)((radians * 0x4000) / (2*M_PI));
+	trigint_angle_t angle = (trigint_angle_t)((radians * 0x4000) / (2*M_PI));
 	return angle;
 }
 
-double dd_sin16_angle_to_radians_d(dd_sin16_angle_t angle)
+double trigint_angle_to_radians_d(trigint_angle_t angle)
 {
     double angle_d = angle;
     double radians = (angle_d * 2.0 * M_PI) / 0x4000;
@@ -159,22 +159,13 @@ double dd_sin16_angle_to_radians_d(dd_sin16_angle_t angle)
 
 #if !DD_SIN16_STATIC_TABLE
 
-void dd_sin16_init()
+void trigint_sin16_init()
 {
 	for (int i = 0; i < SINE_TABLE_COUNT; i++) {
 		double radians = i * M_PI_2 / SINE_TABLE_SIZE;
 		double sinValue = 32767.0 * sin(radians);
 		int16_t tableValue = round(sinValue);
         dd_sine16_table[i] = tableValue;
-	}
-}
-
-void dd_sin16_dump_table()
-{
-	for (int i = 0; i < SINE_TABLE_COUNT; i++) {
-		double degrees = i * 90.0 / SINE_TABLE_SIZE;
-		int16_t tableValue = dd_sine16_table[i];
-        printf("%.3f, %d\n", degrees, tableValue);
 	}
 }
 

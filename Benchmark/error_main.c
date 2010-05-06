@@ -53,8 +53,8 @@ void bench_check_error_of(int16_t table1[], int16_t table2[])
 
 void bench_check_error()
 {
-    for (dd_sin16_angle_t angle = 0; angle < NUM_LOOP_ITERATIONS; angle++) {
-        double radians = dd_sin16_angle_to_radians_d(angle);
+    for (trigint_angle_t angle = 0; angle < NUM_LOOP_ITERATIONS; angle++) {
+        double radians = trigint_angle_to_radians_d(angle);
         sin16_results[angle] = dd_sin16(angle);
         sinf_results[angle] = roundf(32767.0 * sinf(radians));
         sin_results[angle] = round(32767.0 * sin(radians));
@@ -77,7 +77,7 @@ int main(int argc, char * const argv[])
 #if 1
     bench_check_error();
 #else
-    for (dd_sin16_angle_t angle = 0; angle < DD_SIN16_ANGLES_PER_CYCLE; angle++) {
+    for (trigint_angle_t angle = 0; angle < DD_SIN16_ANGLES_PER_CYCLE; angle++) {
         int16_t sin16_value = dd_sin16(angle);
         
         double radians = dd_sin16_angle_to_radians_d(angle);

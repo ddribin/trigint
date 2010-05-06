@@ -22,7 +22,7 @@ int16_t trigint_sin16_table_lookup(int index);
 /**
  * Initialize the dynamic table. Must be called before any calls to dd_sin16().
  */
-void dd_sin16_init();
+void trigint_sin16_init();
 
 #endif
 

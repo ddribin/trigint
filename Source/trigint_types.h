@@ -12,10 +12,8 @@
  *      1 angle unit =~ 2*M_PI/16384 = 0.0003835 radians
  */
 typedef uint16_t trigint_angle_t;
-typedef trigint_angle_t dd_sin16_angle_t;
 
-#define DD_SIN16_ANGLE_MAX 0x3FFF
-#define DD_SIN16_ANGLES_PER_CYCLE 0x4000
-
+#define TRIGINT_ANGLE_MAX 0x3FFF
+#define TRIGINT_ANGLES_PER_CYCLE 0x4000
 
 #endif

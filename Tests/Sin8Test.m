@@ -48,7 +48,7 @@ void trigint_sin8u_dump_table()
 
 - (uint8_t)sin8u:(double)degrees
 {
-    trigint_angle_t angle = dd_sin16_degrees_to_angle_d(degrees);
+    trigint_angle_t angle = trigint_degrees_to_angle_d(degrees);
     uint8_t sinValue = trigint_sin8u(angle);
     return sinValue;
 }

@@ -22,8 +22,8 @@
 #endif
     
 #if 0
-    for (dd_sin16_angle_t angle = 0x0000; angle <= 0x1000; angle += 0x0001) {
-        double degrees = dd_sin16_angle_to_degrees_d(angle);
+    for (trigint_angle_t angle = 0x0000; angle <= 0x1000; angle += 0x0001) {
+        double degrees = trigint_angle_to_degrees_d(angle);
         int16_t value = dd_sin16(angle);
         printf("%.3f, %d\n", degrees, value);
     }
@@ -32,7 +32,7 @@
     
 #if 0
     for (double degrees = 0.0; degrees <= 90.0; degrees += 0.1) {
-        dd_sin16_angle_t angle = dd_sin16_degrees_to_angle_d(degrees);
+        trigint_angle_t angle = trigint_degrees_to_angle_d(degrees);
         int16_t value = dd_sin16(angle);
         printf("%.3f, %d\n", degrees, value);
     }

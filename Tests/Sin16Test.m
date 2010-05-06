@@ -6,6 +6,17 @@
 #include <math.h>
 
 
+
+void trigint_sin16_dump_table()
+{
+    int table_size = trigint_sin16_table_size();
+	for (int i = 0; i < table_size; i++) {
+		double degrees = i * 90.0 / table_size;
+		int16_t tableValue = trigint_sin16_table_lookup(i);
+        printf("%.3f, %d\n", degrees, tableValue);
+	}
+}
+
 @implementation Sin16Test
 
 #if !DD_SIN16_STATIC_TABLE
@@ -24,7 +35,7 @@
 
 - (int16_t)sin16:(double)degrees
 {
-    dd_sin16_angle_t angle = dd_sin16_degrees_to_angle_d(degrees);
+    trigint_angle_t angle = trigint_degrees_to_angle_d(degrees);
     int16_t sinValue = dd_sin16(angle);
     return sinValue;
 }
