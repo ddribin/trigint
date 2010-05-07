@@ -112,6 +112,7 @@ int16_t trigint_sin16(trigint_angle_t angle)
 #pragma mark -
 
 #if !TRIGINT_SIN16_STATIC_TABLE
+#include <math.h>
 
 void trigint_sin16_init()
 {

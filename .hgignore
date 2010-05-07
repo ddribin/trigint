@@ -10,3 +10,4 @@ build
 scratch
 .DS_Store
 *.~.nib
+*~
