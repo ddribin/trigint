@@ -44,6 +44,12 @@
  * instead of 2*PI radians or 360 degrees.  Thus, the angle parameters
  * can be safetly stored in an unsigned 16-bit data type.
  *
+ * The original purpose of this library was to generate sine waves for
+ * audio, so the main functions are:
+ *
+ *   - trigint_sin16(), a function that returns sine values as a signed 16-bit integer
+ *   - trigint_sin8u(), a function that returns sine values as an unsigned 8-bit integer
+ *
  * @see trigint16
  * @see trigint8
  *
