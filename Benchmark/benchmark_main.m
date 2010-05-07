@@ -16,9 +16,9 @@ int main(int argc, const char * argv[])
     
     uint32_t iters = 50*1000;
     printf("Mac OS X\n");
-    dd_sin16_bench(iters);
-    lib_sinf_bench(iters);
-    lib_sin_bench(iters);
+    bench_trigint_sin16(iters);
+    bench_lib_sinf(iters);
+    bench_lib_sin(iters);
     
     // bench_check_error();
 

@@ -60,31 +60,17 @@ void bench_check_error()
         sin_results[angle] = round(32767.0 * sin(radians));
     }
     
-#if 0
     printf("sinf vs. sin:\n");
     bench_check_error_of(sinf_results, sin_results);
-#endif
-    printf("dd_sin16 vs. sin:\n");
+    printf("sin16 vs. sin:\n");
     bench_check_error_of(sin16_results, sin_results);
-#if 0
-    printf("dd_sin16 vs. sinf:\n");
+    printf("sin16 vs. sinf:\n");
     bench_check_error_of(sin16_results, sinf_results);
-#endif
 }
 
 int main(int argc, char * const argv[])
 {
-#if 1
     bench_check_error();
-#else
-    for (trigint_angle_t angle = 0; angle < DD_SIN16_ANGLES_PER_CYCLE; angle++) {
-        int16_t sin16_value = dd_sin16(angle);
-        
-        double radians = dd_sin16_angle_to_radians_d(angle);
-        int16_t sin_value = round(32767.0 * sin(radians));
-        printf("%lf, %d, %d\n", radians, sin16_value, sin_value);
-    }
-#endif
     
     return 0;
 }

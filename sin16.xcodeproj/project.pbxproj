@@ -45,7 +45,7 @@
 		5515169411928E7D0030C8FF /* trigint_conversions.c in Sources */ = {isa = PBXBuildFile; fileRef = 5515169311928E7D0030C8FF /* trigint_conversions.c */; };
 		55508A131177FF2400ADA67D /* Sin16Test.m in Sources */ = {isa = PBXBuildFile; fileRef = 55508A121177FF2400ADA67D /* Sin16Test.m */; };
 		55508B0B117801AC00ADA67D /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55508B0A117801AC00ADA67D /* SenTestingKit.framework */; };
-		55508B9C11780A4E00ADA67D /* Sin16Conversions.m in Sources */ = {isa = PBXBuildFile; fileRef = 55508B9B11780A4E00ADA67D /* Sin16Conversions.m */; };
+		55508B9C11780A4E00ADA67D /* ConversionsTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 55508B9B11780A4E00ADA67D /* ConversionsTest.m */; };
 		55B894FE118717E600FEB15C /* benchmark_main.m in Sources */ = {isa = PBXBuildFile; fileRef = 55B894BE1187164800FEB15C /* benchmark_main.m */; };
 		55B895AE118727EA00FEB15C /* benchmark.m in Sources */ = {isa = PBXBuildFile; fileRef = 55B895AD118727EA00FEB15C /* benchmark.m */; };
 		55EFE9B9117941CB00E2F8B6 /* DDAudioComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 55EFE993117941CB00E2F8B6 /* DDAudioComponent.m */; };
@@ -172,8 +172,8 @@
 		55508A111177FF2400ADA67D /* Sin16Test.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Sin16Test.h; sourceTree = "<group>"; };
 		55508A121177FF2400ADA67D /* Sin16Test.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Sin16Test.m; sourceTree = "<group>"; };
 		55508B0A117801AC00ADA67D /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
-		55508B9A11780A4E00ADA67D /* Sin16Conversions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Sin16Conversions.h; sourceTree = "<group>"; };
-		55508B9B11780A4E00ADA67D /* Sin16Conversions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Sin16Conversions.m; sourceTree = "<group>"; };
+		55508B9A11780A4E00ADA67D /* ConversionsTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConversionsTest.h; sourceTree = "<group>"; };
+		55508B9B11780A4E00ADA67D /* ConversionsTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConversionsTest.m; sourceTree = "<group>"; };
 		55B894BE1187164800FEB15C /* benchmark_main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = benchmark_main.m; sourceTree = "<group>"; };
 		55B894F9118717DA00FEB15C /* benchmark */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = benchmark; sourceTree = BUILT_PRODUCTS_DIR; };
 		55B895AC118727EA00FEB15C /* benchmark.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = benchmark.h; sourceTree = "<group>"; };
@@ -365,10 +365,10 @@
 				55508A101177FEF900ADA67D /* Info.plist */,
 				55508A111177FF2400ADA67D /* Sin16Test.h */,
 				55508A121177FF2400ADA67D /* Sin16Test.m */,
-				55508B9A11780A4E00ADA67D /* Sin16Conversions.h */,
-				55508B9B11780A4E00ADA67D /* Sin16Conversions.m */,
 				5515146D1191284E0030C8FF /* Sin8Test.h */,
 				5515146E1191284E0030C8FF /* Sin8Test.m */,
+				55508B9A11780A4E00ADA67D /* ConversionsTest.h */,
+				55508B9B11780A4E00ADA67D /* ConversionsTest.m */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -676,7 +676,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				55508A131177FF2400ADA67D /* Sin16Test.m in Sources */,
-				55508B9C11780A4E00ADA67D /* Sin16Conversions.m in Sources */,
+				55508B9C11780A4E00ADA67D /* ConversionsTest.m in Sources */,
 				5515146F1191284E0030C8FF /* Sin8Test.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

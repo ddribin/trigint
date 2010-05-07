@@ -13,8 +13,6 @@
 void ddprintf(NSString * format, ...);
 #endif
 
-void dd_sin16_bench(uint32_t iters);
-void lib_sin_bench(uint32_t iters);
-void lib_sinf_bench(uint32_t iters);
-
-void bench_check_error();
+void bench_trigint_sin16(uint32_t iters);
+void bench_lib_sin(uint32_t iters);
+void bench_lib_sinf(uint32_t iters);
