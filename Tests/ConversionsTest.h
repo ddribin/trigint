@@ -3,7 +3,7 @@
 #import <SenTestingKit/SenTestingKit.h>
 
 
-@interface Sin16Conversions : SenTestCase {
+@interface ConversionsTest : SenTestCase {
 
 }
 

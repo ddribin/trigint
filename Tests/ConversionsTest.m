@@ -1,11 +1,11 @@
 //
 
-#import "Sin16Conversions.h"
+#import "ConversionsTest.h"
 #include "trigint_conversions.h"
 #include <math.h>
 
 
-@implementation Sin16Conversions
+@implementation ConversionsTest
 
 - (void)testDegreesToAngleInt
 {
