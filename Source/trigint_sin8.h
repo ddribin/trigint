@@ -71,7 +71,7 @@ int trigint_sin8u_table_size();
 /**
  * Lookup a specific table entry for the given index.
  *
- * @param index
+ * @param index a table index
  * @return the 8-bit unsigned value at the table entry
  *
  * @note This is generally only needed for debugging purposes.

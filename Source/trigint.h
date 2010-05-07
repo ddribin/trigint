@@ -44,6 +44,9 @@
  * instead of 2*PI radians or 360 degrees.  Thus, the angle parameters
  * can be safetly stored in an unsigned 16-bit data type.
  *
+ * @see trigint16
+ * @see trigint8
+ *
  * This library is essentially a C version of the Scott Dattalo's <a
  * href="http://www.dattalo.com/technical/software/pic/picsine.html">
  * sine wave routine for the PIC microcontroller</a>.  Credit goes to

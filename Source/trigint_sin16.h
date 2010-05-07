@@ -54,7 +54,7 @@ int trigint_sin16_table_size();
 /**
  * Lookup a specific table entry for the given index.
  *
- * @param index
+ * @param index a table index
  * @return the 16-bit signed value at the table entry
  *
  * @note This is generally only needed for debugging purposes.
