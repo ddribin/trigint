@@ -36,7 +36,7 @@
 /**
  * Converts an angle from degrees, as a double, to trigint_angle_t.
  *
- * @param degrees Degress, as a double
+ * @param degrees an angle in degrees, as a double
  * @returns the angle as a trigint_angle_t
  */
 inline trigint_angle_t trigint_degrees_to_angle_d(double degrees)
@@ -48,7 +48,7 @@ inline trigint_angle_t trigint_degrees_to_angle_d(double degrees)
 /**
  * Converts an angle from degrees, as an int to trigint_angle_t.
  *
- * @param degrees Degress, as an int
+ * @param degrees an anle in degrees, as an int
  * @returns the angle as a trigint_angle_t
  */
 inline trigint_angle_t trigint_degrees_to_angle_i(int degrees)
@@ -58,10 +58,10 @@ inline trigint_angle_t trigint_degrees_to_angle_i(int degrees)
 }
 
 /**
- * Converts an angle from trigint_angle_t to degrees, as a double
+ * Converts an angle from trigint_angle_t to degrees, as a double.
  *
  * @param angle an angle as a trigint_angle_t
- * @returns the angle as a double
+ * @returns the angle in degrees as a double
  */
 inline double trigint_angle_to_degrees_d(trigint_angle_t angle)
 {
@@ -71,6 +71,10 @@ inline double trigint_angle_to_degrees_d(trigint_angle_t angle)
 }
 
 /**
+ * Converts an angle from trigint_angle_t to degrees, as an int.
+ *
+ * @param angle an angle as a trigint_angle_t
+ * @returns the angle in degrees as an int
  */
 inline int trigint_angle_to_degrees_i(trigint_angle_t angle)
 {
@@ -80,6 +84,10 @@ inline int trigint_angle_to_degrees_i(trigint_angle_t angle)
 }
 
 /**
+ * Converts an angle from radians, as a double to trigint_angle_t.
+ *
+ * @param radians an angle in radians, as a double
+ * @returns the angle as a trigint_angle_t
  */
 inline trigint_angle_t trigint_radians_to_angle_d(double radians)
 {
@@ -88,6 +96,10 @@ inline trigint_angle_t trigint_radians_to_angle_d(double radians)
 }
 
 /**
+ * Converts an angle from trigint_angle_t to radians, as a double.
+ *
+ * @param angle an angle as a trigint_angle_t
+ * @returns the angle in radians as a double
  */
 inline double trigint_angle_to_radians_d(trigint_angle_t angle)
 {
