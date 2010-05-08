@@ -28,7 +28,7 @@
 /**
  * @mainpage trigint: An Integer-based Trigonometry Library
  *
- * TrigInt is an integer-based trigonometry library.  The trigonometry
+ * trigint is an integer-based trigonometry library.  The trigonometry
  * functions in the standard C library use floating point data types
  * (double or float), which may be too slow or unavailable in an
  * embedded environment.  This library uses only integer parameters,
@@ -81,8 +81,8 @@
  *
  * Here's a plot of the absolute error for an entire sine wave cycle,
  * superimposed on top of the actual trigint_sin16() values.  As you
- * can see, the maximum absolute error is 40, which isn't bad given
- * the range of -32,767 to +32,767:
+ * can see, the maximum absolute error is 40, which is very good,
+ * given a range of -32,767 to +32,767 for the sine values.
  *
  * @image html sin16_error.png
  *

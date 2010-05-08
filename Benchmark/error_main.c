@@ -36,10 +36,13 @@ void bench_check_error_of(int16_t approx_table[], int16_t actual_table[])
         int16_t approx = approx_table[i];
         int16_t actual = actual_table[i];
 
+        // Calculate absolute and relative errors:
+        // http://en.wikipedia.org/wiki/Approximation_error
         int16_t abs_error = abs(approx - actual);
         double rel_error = 1.0 - ((double)approx)/((double)actual);
+        
         // printf("%5d, %5d, %5d, %3d %.5g\n", i, approx, actual, abs_error, rel_error);
-        printf("%d, %d, %d\n", i, approx, abs_error);
+        // printf("%d, %d, %d\n", i, approx, abs_error);
         max_abs_error = MAX(max_abs_error, abs_error);
         max_rel_error = fmax(max_rel_error, rel_error);
         avg_abs_error += abs_error;
