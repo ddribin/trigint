@@ -17,7 +17,7 @@
 
 - (void)testDegreesToAngleIntDoesNotWrap
 {
-    STAssertEquals(trigint_degrees_to_angle_i(360), (trigint_angle_t)0x4000, nil);
+    STAssertEquals(trigint_degrees_to_angle_i(360), (trigint_angle_t)TRIGINT_ANGLES_PER_CYCLE, nil);
 }
 
 - (void)testDegreesToAngleDouble
@@ -30,7 +30,7 @@
 
 - (void)testDegreesToAngleDoubleDoesNotWrap
 {
-    STAssertEquals(trigint_degrees_to_angle_d(360.0), (trigint_angle_t)0x4000, nil);
+    STAssertEquals(trigint_degrees_to_angle_d(360.0), (trigint_angle_t)TRIGINT_ANGLES_PER_CYCLE, nil);
 }
 
 #pragma mark -
@@ -69,7 +69,7 @@
 
 - (void)testRadiansToAngleDoubleDoesNotWrap
 {
-    STAssertEquals(trigint_radians_to_angle_d(2*M_PI), (trigint_angle_t)0x4000, nil);
+    STAssertEquals(trigint_radians_to_angle_d(2*M_PI), (trigint_angle_t)TRIGINT_ANGLES_PER_CYCLE, nil);
 }
 
 - (void)testAngleToRadiansDouble

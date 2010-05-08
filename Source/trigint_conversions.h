@@ -66,7 +66,7 @@ inline trigint_angle_t trigint_degrees_to_angle_i(int degrees)
 inline double trigint_angle_to_degrees_d(trigint_angle_t angle)
 {
     double angle_d = angle;
-    double degrees = angle_d * 360 / 0x4000;
+    double degrees = angle_d * 360 / TRIGINT_ANGLES_PER_CYCLE;
     return degrees;
 }
 
@@ -79,7 +79,7 @@ inline double trigint_angle_to_degrees_d(trigint_angle_t angle)
 inline int trigint_angle_to_degrees_i(trigint_angle_t angle)
 {
     int angle_i = angle;
-    int degrees = angle_i * 360 / 0x4000;
+    int degrees = angle_i * 360 / TRIGINT_ANGLES_PER_CYCLE;
     return degrees;
 }
 
@@ -91,7 +91,7 @@ inline int trigint_angle_to_degrees_i(trigint_angle_t angle)
  */
 inline trigint_angle_t trigint_radians_to_angle_d(double radians)
 {
-	trigint_angle_t angle = (trigint_angle_t)((radians * 0x4000) / (2*M_PI));
+	trigint_angle_t angle = (trigint_angle_t)((radians * TRIGINT_ANGLES_PER_CYCLE) / (2*M_PI));
 	return angle;
 }
 
@@ -104,7 +104,7 @@ inline trigint_angle_t trigint_radians_to_angle_d(double radians)
 inline double trigint_angle_to_radians_d(trigint_angle_t angle)
 {
     double angle_d = angle;
-    double radians = (angle_d * 2.0 * M_PI) / 0x4000;
+    double radians = (angle_d * 2.0 * M_PI) / TRIGINT_ANGLES_PER_CYCLE;
     return radians;
 }
 
