@@ -55,7 +55,7 @@ void bench_loop(bench_loop_t bench_loop, const char * name, uint32_t iters)
 	NSTimeInterval duration = end - start;
     float itersPerSec = ((float)gSum)/duration;
 	// NSLog(@"%s: duration: %.3g, iters: %llu, per sec: %@", name, duration, gSum, formatFloat(itersPerSec));
-    ddprintf(@"%s, %.3g, %llu, %.3f\n", name, duration, gSum, itersPerSec);
+    ddprintf(@"%s, %.4g, %llu, %.3f\n", name, duration, gSum, itersPerSec);
 }
 
 #pragma mark -

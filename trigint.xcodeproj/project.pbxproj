@@ -67,63 +67,63 @@
 			isa = PBXContainerItemProxy;
 			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 55B894F8118717DA00FEB15C /* benchmark */;
+			remoteGlobalIDString = 55B894F8118717DA00FEB15C;
 			remoteInfo = benchmark;
 		};
 		5515137A118F04050030C8FF /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 55151306118F04040030C8FF /* Benchmark.xcodeproj */;
 			proxyType = 2;
-			remoteGlobalIDString = 1D6058910D05DD3D006BFB54 /* Benchmark.app */;
+			remoteGlobalIDString = 1D6058910D05DD3D006BFB54;
 			remoteInfo = Benchmark;
 		};
 		551515C1119285ED0030C8FF /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 551515BD119285DB0030C8FF /* trigint */;
+			remoteGlobalIDString = 551515BD119285DB0030C8FF;
 			remoteInfo = trigint;
 		};
 		551515C3119285F80030C8FF /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 551515BD119285DB0030C8FF /* trigint */;
+			remoteGlobalIDString = 551515BD119285DB0030C8FF;
 			remoteInfo = trigint;
 		};
 		551515C5119286090030C8FF /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 551515BD119285DB0030C8FF /* trigint */;
+			remoteGlobalIDString = 551515BD119285DB0030C8FF;
 			remoteInfo = trigint;
 		};
 		551515C7119286120030C8FF /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 551515BD119285DB0030C8FF /* trigint */;
+			remoteGlobalIDString = 551515BD119285DB0030C8FF;
 			remoteInfo = trigint;
 		};
 		551515E1119286840030C8FF /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 55151393118F04520030C8FF /* error */;
+			remoteGlobalIDString = 55151393118F04520030C8FF;
 			remoteInfo = error;
 		};
 		551515F0119286BC0030C8FF /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 551515BD119285DB0030C8FF /* trigint */;
+			remoteGlobalIDString = 551515BD119285DB0030C8FF;
 			remoteInfo = trigint;
 		};
 		551515F7119286EE0030C8FF /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 551515EB119286B80030C8FF /* table_gen */;
+			remoteGlobalIDString = 551515EB119286B80030C8FF;
 			remoteInfo = table_gen;
 		};
 		55508CE71178153800ADA67D /* PBXContainerItemProxy */ = {
@@ -578,7 +578,7 @@
 			attributes = {
 				ORGANIZATIONNAME = "Dave Dribin";
 			};
-			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "sin16" */;
+			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "trigint" */;
 			compatibilityVersion = "Xcode 3.1";
 			hasScannedForEncodings = 1;
 			mainGroup = 29B97314FDCFA39411CA2CEA /* sin16 */;
@@ -1127,7 +1127,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		C01FCF4E08A954540054247B /* Build configuration list for PBXProject "sin16" */ = {
+		C01FCF4E08A954540054247B /* Build configuration list for PBXProject "trigint" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				C01FCF4F08A954540054247B /* Debug */,

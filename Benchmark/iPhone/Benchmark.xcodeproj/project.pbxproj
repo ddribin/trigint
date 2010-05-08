@@ -13,9 +13,61 @@
 		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
 		288765FD0DF74451002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765FC0DF74451002DB57D /* CoreGraphics.framework */; };
 		28AD733F0D9D9553002E5188 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28AD733E0D9D9553002E5188 /* MainWindow.xib */; };
-		558D6A52118774BB0076F130 /* trigint_sin16.c in Sources */ = {isa = PBXBuildFile; fileRef = 558D6A50118774BB0076F130 /* trigint_sin16.c */; };
+		55151A9C1195F5920030C8FF /* libtrigint.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 55151A8F1195F57C0030C8FF /* libtrigint.a */; };
 		558D6A55118774CC0076F130 /* benchmark.m in Sources */ = {isa = PBXBuildFile; fileRef = 558D6A54118774CC0076F130 /* benchmark.m */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		55151A8E1195F57C0030C8FF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 55151A841195F57C0030C8FF /* trigint.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 551515BE119285DB0030C8FF /* libtrigint.a */;
+			remoteInfo = trigint;
+		};
+		55151A901195F57C0030C8FF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 55151A841195F57C0030C8FF /* trigint.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 8D1107320486CEB800E47090 /* Sin16.app */;
+			remoteInfo = sin16;
+		};
+		55151A921195F57C0030C8FF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 55151A841195F57C0030C8FF /* trigint.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 55508A091177FED900ADA67D /* UnitTests.octest */;
+			remoteInfo = UnitTests;
+		};
+		55151A941195F57C0030C8FF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 55151A841195F57C0030C8FF /* trigint.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 55B894F9118717DA00FEB15C /* benchmark */;
+			remoteInfo = benchmark;
+		};
+		55151A961195F57C0030C8FF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 55151A841195F57C0030C8FF /* trigint.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 55151394118F04520030C8FF /* error */;
+			remoteInfo = error;
+		};
+		55151A981195F57C0030C8FF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 55151A841195F57C0030C8FF /* trigint.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 551515EC119286B80030C8FF /* table_gen */;
+			remoteInfo = table_gen;
+		};
+		55151A9A1195F5880030C8FF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 55151A841195F57C0030C8FF /* trigint.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 551515BD119285DB0030C8FF /* trigint */;
+			remoteInfo = trigint;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		1D30AB110D05D00D00671497 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -27,8 +79,7 @@
 		28AD733E0D9D9553002E5188 /* MainWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainWindow.xib; sourceTree = "<group>"; };
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		32CA4F630368D1EE00C91783 /* Benchmark_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Benchmark_Prefix.pch; sourceTree = "<group>"; };
-		558D6A50118774BB0076F130 /* trigint_sin16.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = trigint_sin16.c; path = ../../Source/trigint_sin16.c; sourceTree = SOURCE_ROOT; };
-		558D6A51118774BB0076F130 /* trigint_sin16.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = trigint_sin16.h; path = ../../Source/trigint_sin16.h; sourceTree = SOURCE_ROOT; };
+		55151A841195F57C0030C8FF /* trigint.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = trigint.xcodeproj; path = ../../trigint.xcodeproj; sourceTree = SOURCE_ROOT; };
 		558D6A53118774CC0076F130 /* benchmark.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = benchmark.h; path = ../benchmark.h; sourceTree = SOURCE_ROOT; };
 		558D6A54118774CC0076F130 /* benchmark.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = benchmark.m; path = ../benchmark.m; sourceTree = SOURCE_ROOT; };
 		8D1107310486CEB800E47090 /* Benchmark-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Benchmark-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
@@ -39,6 +90,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				55151A9C1195F5920030C8FF /* libtrigint.a in Frameworks */,
 				1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */,
 				1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */,
 				288765FD0DF74451002DB57D /* CoreGraphics.framework in Frameworks */,
@@ -53,8 +105,6 @@
 			children = (
 				1D3623240D0F684500981E51 /* BenchmarkAppDelegate.h */,
 				1D3623250D0F684500981E51 /* BenchmarkAppDelegate.m */,
-				558D6A50118774BB0076F130 /* trigint_sin16.c */,
-				558D6A51118774BB0076F130 /* trigint_sin16.h */,
 				558D6A53118774CC0076F130 /* benchmark.h */,
 				558D6A54118774CC0076F130 /* benchmark.m */,
 			);
@@ -77,6 +127,7 @@
 				29B97317FDCFA39411CA2CEA /* Resources */,
 				29B97323FDCFA39411CA2CEA /* Frameworks */,
 				19C28FACFE9D520D11CA2CBB /* Products */,
+				55151A841195F57C0030C8FF /* trigint.xcodeproj */,
 			);
 			name = CustomTemplate;
 			sourceTree = "<group>";
@@ -109,6 +160,19 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		55151A851195F57C0030C8FF /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				55151A8F1195F57C0030C8FF /* libtrigint.a */,
+				55151A911195F57C0030C8FF /* Sin16.app */,
+				55151A931195F57C0030C8FF /* UnitTests.octest */,
+				55151A951195F57C0030C8FF /* benchmark */,
+				55151A971195F57C0030C8FF /* error */,
+				55151A991195F57C0030C8FF /* table_gen */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -123,6 +187,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				55151A9B1195F5880030C8FF /* PBXTargetDependency */,
 			);
 			name = Benchmark;
 			productName = Benchmark;
@@ -139,12 +204,63 @@
 			hasScannedForEncodings = 1;
 			mainGroup = 29B97314FDCFA39411CA2CEA /* CustomTemplate */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 55151A851195F57C0030C8FF /* Products */;
+					ProjectRef = 55151A841195F57C0030C8FF /* trigint.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				1D6058900D05DD3D006BFB54 /* Benchmark */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		55151A8F1195F57C0030C8FF /* libtrigint.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libtrigint.a;
+			remoteRef = 55151A8E1195F57C0030C8FF /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		55151A911195F57C0030C8FF /* Sin16.app */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.application;
+			path = Sin16.app;
+			remoteRef = 55151A901195F57C0030C8FF /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		55151A931195F57C0030C8FF /* UnitTests.octest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = UnitTests.octest;
+			remoteRef = 55151A921195F57C0030C8FF /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		55151A951195F57C0030C8FF /* benchmark */ = {
+			isa = PBXReferenceProxy;
+			fileType = "compiled.mach-o.executable";
+			path = benchmark;
+			remoteRef = 55151A941195F57C0030C8FF /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		55151A971195F57C0030C8FF /* error */ = {
+			isa = PBXReferenceProxy;
+			fileType = "compiled.mach-o.executable";
+			path = error;
+			remoteRef = 55151A961195F57C0030C8FF /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		55151A991195F57C0030C8FF /* table_gen */ = {
+			isa = PBXReferenceProxy;
+			fileType = "compiled.mach-o.executable";
+			path = table_gen;
+			remoteRef = 55151A981195F57C0030C8FF /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		1D60588D0D05DD3D006BFB54 /* Resources */ = {
@@ -164,12 +280,19 @@
 			files = (
 				1D60589B0D05DD56006BFB54 /* main.m in Sources */,
 				1D3623260D0F684500981E51 /* BenchmarkAppDelegate.m in Sources */,
-				558D6A52118774BB0076F130 /* trigint_sin16.c in Sources */,
 				558D6A55118774CC0076F130 /* benchmark.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		55151A9B1195F5880030C8FF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = trigint;
+			targetProxy = 55151A9A1195F5880030C8FF /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		1D6058940D05DD3E006BFB54 /* Debug */ = {
@@ -181,6 +304,7 @@
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Benchmark_Prefix.pch;
+				GCC_THUMB_SUPPORT = YES;
 				INFOPLIST_FILE = "Benchmark-Info.plist";
 				PRODUCT_NAME = Benchmark;
 			};
@@ -193,6 +317,7 @@
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Benchmark_Prefix.pch;
+				GCC_THUMB_SUPPORT = YES;
 				INFOPLIST_FILE = "Benchmark-Info.plist";
 				PRODUCT_NAME = Benchmark;
 				VALIDATE_PRODUCT = YES;
@@ -209,6 +334,7 @@
 				GCC_THUMB_SUPPORT = NO;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = ../../Source;
 				PREBINDING = NO;
 				SDKROOT = iphoneos3.1.3;
 			};
@@ -224,6 +350,7 @@
 				GCC_THUMB_SUPPORT = NO;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = ../../Source;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				PREBINDING = NO;
 				SDKROOT = iphoneos3.1.3;

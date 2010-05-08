@@ -36,9 +36,9 @@
              device.localizedModel, device.systemName, device.systemVersion);
 	ddprintf(@"Function, Duration (secs), Iterations, Iterations/sec\n");
     uint32_t iters = 5*1000;
-    dd_sin16_bench(iters);
-    lib_sinf_bench(iters);
-    lib_sin_bench(iters);
+    bench_trigint_sin16(iters);
+    bench_lib_sinf(iters);
+    bench_lib_sin(iters);
     
     // bench_check_error();
     
