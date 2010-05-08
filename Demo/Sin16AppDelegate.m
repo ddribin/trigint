@@ -1,6 +1,8 @@
 #import "Sin16AppDelegate.h"
 #import "DDCoreAudio.h"
 
+static const double SAMPLE_RATE = 44100.0;
+
 @implementation Sin16AppDelegate
 
 @synthesize window = _window;
@@ -45,7 +47,7 @@ static OSStatus MyRenderer(void *							inRefCon,
 
 - (void)applicationWillFinishLaunching:(NSNotification *)notification
 {
-    self.frequency = 440.0;
+    [self setFrequencyToA440:nil];
     NSLog(@"phaseIncrement: %u", _phaseIncrement);
 }
 
@@ -88,7 +90,7 @@ static OSStatus MyRenderer(void *							inRefCon,
                           );
     
     streamFormat.mFormatID = kAudioFormatLinearPCM;
-    streamFormat.mSampleRate = 44100;
+    streamFormat.mSampleRate = SAMPLE_RATE;
     streamFormat.mChannelsPerFrame = 2;
     streamFormat.mFormatFlags = formatFlags;
     streamFormat.mBitsPerChannel = 16;
@@ -115,13 +117,17 @@ static OSStatus MyRenderer(void *							inRefCon,
 - (void)setFrequency:(double)frequency
 {
     _frequency = frequency;
-	_phaseIncrement = round(frequency * 16384.0 / 44100.0);
+	_phaseIncrement = round(frequency * TRIGINT_ANGLES_PER_CYCLE / SAMPLE_RATE);
 }
 
 - (double)frequency
 {
     return _frequency;
 }
+
+/*
+ * http://en.wikipedia.org/wiki/Piano_key_frequencies
+ */
 
 - (IBAction)setFrequencyToA440:(id)sender;
 {

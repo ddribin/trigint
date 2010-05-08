@@ -53,8 +53,7 @@
  * These functions use lookup tables plus linear interoplation to
  * estimate the values.  The trade-off is accuracy, but the accuracy,
  * even with only 16 entry lookup tables, is often sufficient. See the
- * more detailed @link accuracy accuracy of trigint_sin16 @endlink for
- * more information.
+ * @ref accuracy page for more error analysis.
  *
  * This library is essentially a C version of the Scott Dattalo's <a
  * href="http://www.dattalo.com/technical/software/pic/picsine.html">
@@ -82,7 +81,8 @@
  * Here's a plot of the absolute error for an entire sine wave cycle,
  * superimposed on top of the actual trigint_sin16() values.  As you
  * can see, the maximum absolute error is 40, which is very good,
- * given a range of -32,767 to +32,767 for the sine values.
+ * given a range of -32,767 to +32,767 for the sine values.  This is
+ * certainly good enough for music synthesis.
  *
  * @image html sin16_error.png
  *
