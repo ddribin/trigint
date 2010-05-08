@@ -19,12 +19,13 @@ void trigint_sin16_dump_table()
 
 @implementation Sin16Test
 
-#if !TRIGINT_SIN16_STATIC_TABLE
 - (void)setUp
 {
+#if !TRIGINT_SIN16_STATIC_TABLE
     trigint_sin16_init();
-}
 #endif
+    trigint_sin16_dump_table();
+}
 
 - (int16_t)sin:(double)degrees
 {

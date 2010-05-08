@@ -29,7 +29,7 @@
 #include <math.h>
 
 /**
- * @defgroup conversion Functions to convert between angle units
+ * @defgroup trigint_conversions Functions to convert between angle units
  * @{
  */
 

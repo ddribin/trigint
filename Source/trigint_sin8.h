@@ -28,7 +28,7 @@
 #include "trigint_types.h"
 
 /**
- * @defgroup trigint8 Trigonometry functions returning 8-bit integer values
+ * @defgroup trigint_sin8 Trigonometry functions returning 8-bit integer values
  * @{
  */
 

@@ -28,7 +28,7 @@
 #include "trigint_types.h"
 
 /**
- * @defgroup trigint16 Trigonometry functions returning 16-bit integer values
+ * @defgroup trigint_sin16 Trigonometry functions returning 16-bit integer values
  * @{
  */
 

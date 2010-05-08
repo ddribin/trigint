@@ -28,7 +28,7 @@
 #include <stdint.h>
 
 /**
- * @defgroup types Data types and constants
+ * @defgroup trigint_types Data types and constants
  * @{
  */
 

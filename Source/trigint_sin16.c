@@ -47,6 +47,8 @@
  
 #define SINE_INDEX_OFFSET (12 - SINE_INDEX_WIDTH)
 #define SINE_INTERP_OFFSET (SINE_INDEX_OFFSET - SINE_INTERP_WIDTH)
+#define QUADRANT_HIGH_MASK (1 << 13)
+#define QUADRANT_LOW_MASK (1 << 12)
 
 /* Define a MAX macro if we don't already have one */
 #ifndef MAX
@@ -78,7 +80,7 @@ static const int16_t trigint_sin16_table[SINE_TABLE_SIZE + 1] = {
 
 #else
 
-static int16_t trigint_sin16[SINE_TABLE_SIZE + 1];
+static int16_t trigint_sin16_table[SINE_TABLE_SIZE + 1];
 
 #endif
 
@@ -103,10 +105,9 @@ int16_t trigint_sin16(trigint_angle_t angle)
     angle += SINE_ROUNDING;
 	int32_t interp = BITS(angle, SINE_INTERP_WIDTH, SINE_INTERP_OFFSET);
 	uint8_t index = BITS(angle, SINE_INDEX_WIDTH, SINE_INDEX_OFFSET);
-	uint8_t quadrant = BITS(angle, 2, 12);
 
-	bool isOddQuadrant = (quadrant & 0x01) == 0;
-	bool isNegativeQuadrant = (quadrant & 0x02) != 0;
+	bool isOddQuadrant = (angle & QUADRANT_LOW_MASK) == 0;
+	bool isNegativeQuadrant = (angle & QUADRANT_HIGH_MASK) != 0;
     
 	if (!isOddQuadrant) {
 		index = SINE_TABLE_SIZE - 1 - index;
