@@ -8,6 +8,7 @@
 @interface Sin16AppDelegate : NSObject <NSApplicationDelegate>
 {
     NSWindow * _window;
+    NSButton * _playStopButton;
     DDAudioUnitGraph * _graph;
     DDAudioUnitNode * _outputNode;
     DDAudioUnitNode * _converterNode;
@@ -20,11 +21,12 @@
     trigint_angle_t _phaseIncrement;
 }
 
-@property (assign) IBOutlet NSWindow *window;
+@property (assign) IBOutlet NSWindow * window;
+@property (assign) IBOutlet NSButton * playStopButton;
 @property (nonatomic) double frequency;
 
 - (IBAction)setFrequencyToA440:(id)sender;
 - (IBAction)setFrequencyToMiddleC:(id)sender;
-- (IBAction)playPause:(id)sender;
+- (IBAction)playStop:(id)sender;
 
 @end

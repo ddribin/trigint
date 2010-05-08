@@ -4,6 +4,7 @@
 @implementation Sin16AppDelegate
 
 @synthesize window = _window;
+@synthesize playStopButton= _playStopButton;
 
 - (void)dumpTables
 {
@@ -42,6 +43,12 @@ static OSStatus MyRenderer(void *							inRefCon,
     return noErr;
 }
 
+- (void)applicationWillFinishLaunching:(NSNotification *)notification
+{
+    self.frequency = 440.0;
+    NSLog(@"phaseIncrement: %u", _phaseIncrement);
+}
+
 - (void)applicationDidFinishLaunching:(NSNotification *)notification
 {
 #if !TRIGINT_SIN16_STATIC_TABLE
@@ -55,9 +62,6 @@ static OSStatus MyRenderer(void *							inRefCon,
     _frameCount = 0;
     NSTimer * timer = [NSTimer timerWithTimeInterval:1.0 target:self selector:@selector(timerFired:) userInfo:nil repeats:YES];
     [[NSRunLoop currentRunLoop] addTimer:timer forMode:NSRunLoopCommonModes];
-    
-    self.frequency = 440.0;
-    NSLog(@"phaseIncrement: %u", _phaseIncrement);
 
     _graph = [[DDAudioUnitGraph alloc] init];
     
@@ -100,7 +104,6 @@ static OSStatus MyRenderer(void *							inRefCon,
     
     [_graph update];
     [_graph initialize];
-    [_graph start];
 }
 
 - (void)timerFired:(NSTimer *)timer
@@ -130,12 +133,14 @@ static OSStatus MyRenderer(void *							inRefCon,
     self.frequency = 261.626;
 }
 
-- (IBAction)playPause:(id)sender;
+- (IBAction)playStop:(id)sender;
 {
     if ([_graph isRunning]) {
         [_graph stop];
+        [_playStopButton setTitle:@"Play"];
     } else {
         [_graph start];
+        [_playStopButton setTitle:@"Stop"];
     }
 }
 
