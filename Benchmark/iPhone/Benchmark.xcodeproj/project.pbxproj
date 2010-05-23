@@ -22,49 +22,49 @@
 			isa = PBXContainerItemProxy;
 			containerPortal = 55151A841195F57C0030C8FF /* trigint.xcodeproj */;
 			proxyType = 2;
-			remoteGlobalIDString = 551515BE119285DB0030C8FF /* libtrigint.a */;
+			remoteGlobalIDString = 551515BE119285DB0030C8FF;
 			remoteInfo = trigint;
 		};
 		55151A901195F57C0030C8FF /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 55151A841195F57C0030C8FF /* trigint.xcodeproj */;
 			proxyType = 2;
-			remoteGlobalIDString = 8D1107320486CEB800E47090 /* Sin16.app */;
+			remoteGlobalIDString = 8D1107320486CEB800E47090;
 			remoteInfo = sin16;
 		};
 		55151A921195F57C0030C8FF /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 55151A841195F57C0030C8FF /* trigint.xcodeproj */;
 			proxyType = 2;
-			remoteGlobalIDString = 55508A091177FED900ADA67D /* UnitTests.octest */;
+			remoteGlobalIDString = 55508A091177FED900ADA67D;
 			remoteInfo = UnitTests;
 		};
 		55151A941195F57C0030C8FF /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 55151A841195F57C0030C8FF /* trigint.xcodeproj */;
 			proxyType = 2;
-			remoteGlobalIDString = 55B894F9118717DA00FEB15C /* benchmark */;
+			remoteGlobalIDString = 55B894F9118717DA00FEB15C;
 			remoteInfo = benchmark;
 		};
 		55151A961195F57C0030C8FF /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 55151A841195F57C0030C8FF /* trigint.xcodeproj */;
 			proxyType = 2;
-			remoteGlobalIDString = 55151394118F04520030C8FF /* error */;
+			remoteGlobalIDString = 55151394118F04520030C8FF;
 			remoteInfo = error;
 		};
 		55151A981195F57C0030C8FF /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 55151A841195F57C0030C8FF /* trigint.xcodeproj */;
 			proxyType = 2;
-			remoteGlobalIDString = 551515EC119286B80030C8FF /* table_gen */;
+			remoteGlobalIDString = 551515EC119286B80030C8FF;
 			remoteInfo = table_gen;
 		};
 		55151A9A1195F5880030C8FF /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 55151A841195F57C0030C8FF /* trigint.xcodeproj */;
 			proxyType = 1;
-			remoteGlobalIDString = 551515BD119285DB0030C8FF /* trigint */;
+			remoteGlobalIDString = 551515BD119285DB0030C8FF;
 			remoteInfo = trigint;
 		};
 /* End PBXContainerItemProxy section */
@@ -82,6 +82,7 @@
 		55151A841195F57C0030C8FF /* trigint.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = trigint.xcodeproj; path = ../../trigint.xcodeproj; sourceTree = SOURCE_ROOT; };
 		558D6A53118774CC0076F130 /* benchmark.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = benchmark.h; path = ../benchmark.h; sourceTree = SOURCE_ROOT; };
 		558D6A54118774CC0076F130 /* benchmark.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = benchmark.m; path = ../benchmark.m; sourceTree = SOURCE_ROOT; };
+		55C615EC11A8E1AA002D4CF5 /* versions.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; name = versions.xcconfig; path = ../../versions.xcconfig; sourceTree = SOURCE_ROOT; };
 		8D1107310486CEB800E47090 /* Benchmark-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Benchmark-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -127,6 +128,7 @@
 				29B97317FDCFA39411CA2CEA /* Resources */,
 				29B97323FDCFA39411CA2CEA /* Frameworks */,
 				19C28FACFE9D520D11CA2CBB /* Products */,
+				55C615EC11A8E1AA002D4CF5 /* versions.xcconfig */,
 				55151A841195F57C0030C8FF /* trigint.xcodeproj */,
 			);
 			name = CustomTemplate;
@@ -304,7 +306,6 @@
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Benchmark_Prefix.pch;
-				GCC_THUMB_SUPPORT = YES;
 				INFOPLIST_FILE = "Benchmark-Info.plist";
 				PRODUCT_NAME = Benchmark;
 			};
@@ -317,7 +318,6 @@
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Benchmark_Prefix.pch;
-				GCC_THUMB_SUPPORT = YES;
 				INFOPLIST_FILE = "Benchmark-Info.plist";
 				PRODUCT_NAME = Benchmark;
 				VALIDATE_PRODUCT = YES;
@@ -326,6 +326,7 @@
 		};
 		C01FCF4F08A954540054247B /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 55C615EC11A8E1AA002D4CF5 /* versions.xcconfig */;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -342,6 +343,7 @@
 		};
 		C01FCF5008A954540054247B /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 55C615EC11A8E1AA002D4CF5 /* versions.xcconfig */;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";

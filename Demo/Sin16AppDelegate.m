@@ -8,13 +8,6 @@ static const double SAMPLE_RATE = 44100.0;
 @synthesize window = _window;
 @synthesize playStopButton= _playStopButton;
 
-- (void)dumpTables
-{
-#if !TRIGINT_SIN16_STATIC_TABLE
-    trigint_sin16_init();
-#endif
-}
-
 static OSStatus MyRenderer(void *							inRefCon,
                            AudioUnitRenderActionFlags *	ioActionFlags,
                            const AudioTimeStamp *			inTimeStamp,

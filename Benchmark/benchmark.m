@@ -70,11 +70,11 @@ void trigint_sin16_bench_loop()
 
 void lib_sinf_bench_loop()
 {
-	float step = (2*M_PI) / ((double)NUM_LOOP_ITERATIONS);
+	float step = (2*M_PI) / ((float)NUM_LOOP_ITERATIONS);
     int i;
     float radians;
 	for (i = 0, radians = 0; i < NUM_LOOP_ITERATIONS; i++, radians += step) {
-		sin_results[i] = 32767.0 * sinf(radians);
+		sin_results[i] = roundf(32767.0f * sinf(radians));
 		gSum++;
 	}
 }
@@ -84,7 +84,7 @@ void lib_sin_bench_loop()
     int i;
     double radians;
 	for (i = 0, radians = 0; i < NUM_LOOP_ITERATIONS; i++, radians += step) {
-		sin_results[i] = 32767.0 * sin(radians);
+		sin_results[i] = round(32767.0 * sin(radians));
 		gSum++;
 	}
 }

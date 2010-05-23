@@ -32,7 +32,8 @@
  * functions in the standard C library use floating point data types
  * (double or float), which may be too slow or unavailable in an
  * embedded environment.  This library uses only integer parameters,
- * return values, and calculations.
+ * return values, and calculations.  It has been tested on the iPhone
+ * with Xcode and on an Atmel AVR microcontroller with avr-gcc.
  *
  * Because the standard C library uses radians as the angle unit, they
  * must be represented with a floating point types.  To avoid using
@@ -51,9 +52,13 @@
  * @see @ref trigint_sin8
  *
  * These functions use lookup tables plus linear interoplation to
- * estimate the values.  The trade-off is accuracy, but the accuracy,
- * even with only 16 entry lookup tables, is often sufficient. See the
- * @ref accuracy page for more error analysis.
+ * estimate the values for speed.  The lookup tables are very small,
+ * only 16 entries, to conserve space.  See the @ref
+ * performance-iphone page for the speed gains on a iPhone OS compared
+ * to the standard library functions.  The trade-off for linear
+ * inerpolation is accuracy, but the accuracy, even with only 16 entry
+ * lookup tables, is often sufficient, epsecialy when generating
+ * audio. See the @ref accuracy page for more error analysis.
  *
  * This library is essentially a C version of the Scott Dattalo's <a
  * href="http://www.dattalo.com/technical/software/pic/picsine.html">
@@ -86,6 +91,50 @@
  *
  * @image html sin16_error.png
  *
+ */
+
+/**
+ * @page performance-iphone Performance of trigint_sin16 on iPhone
+ *
+ * iPhone OS devices run on ARM processors.  While the ARM processor
+ * is capable of performing floating point calculations in hardware,
+ * it is still faster to execute integer-based calculations.  Also,
+ * iPhone applications are compiled in Thumb mode, by default.  While
+ * thumb mode can reduce the code size by up to 35%, Apple recommends
+ * applications that make extensive use of floating point math compile
+ * without Thumb mode.
+ *
+ * Using the trigint library on iPhone OS not only provides much
+ * faster trigonometry calculations, but it allows applications to be
+ * compiled in Thumb mode, since no floating point is used.
+ * 
+ * The following graph shows the performance gains on a 1st generation
+ * iPod Touch between trigint_sin16() and the standard library sinf()
+ * and sin() functions:
+ *
+ * @image html sin16_perf.png
+ *
+ * The sinf() and sin() functions were used to calcuate an integer
+ * value between -32,767 and +32,767 as such:
+ *
+ * @code
+ int16_t sinf_value = roundf(32767.0f * sinf(angle));
+ int16_t sin_value = round(32767.0 * sin(angle));
+ * @endcode
+ *
+ * trigint_sin16() is about 4.4 times faster than sinf() and 6.7 times
+ * faster than sin() in Thumb mode.  Without Thumb mode, the gap
+ * closes a bit to 3.8 times faster and 6.2 times faster,
+ * respectively.
+ *
+ * Note that the floating point values are converted to an integer
+ * using the standard roundf() and round() functions plus a cast.  If
+ * you don't need the accuracy, you can skip the roundf() or round()
+ * and just use a cast.  This increases performace by about 15% (in
+ * Thumb mode), but accuracy is lost as the floating point to integer
+ * conversion just truncates the fractional part.  trigint_sin16()
+ * does rounding, which is why roundf() and round() were used for the
+ * benchmarks.
  */
 
 #include "trigint_sin8.h"
