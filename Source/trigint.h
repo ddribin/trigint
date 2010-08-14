@@ -59,7 +59,7 @@
  * These functions use lookup tables plus linear interoplation to
  * estimate the values for speed.  The lookup tables are very small,
  * only 16 entries, to conserve space.  See the @ref
- * performance-iphone page for the speed gains on a iPhone OS compared
+ * performance-ios page for the speed gains on iOS compared
  * to the standard library functions.  The trade-off for linear
  * inerpolation is accuracy, but the accuracy, even with only 16 entry
  * lookup tables, is often sufficient, epsecialy when generating
@@ -99,17 +99,17 @@
  */
 
 /**
- * @page performance-iphone Performance of trigint_sin16 on iPhone
+ * @page performance-ios Performance of trigint_sin16 on iOS
  *
- * iPhone OS devices run on ARM processors.  While the ARM processor
+ * iOS devices run on ARM processors.  While the ARM processor
  * is capable of performing floating point calculations in hardware,
  * it is still faster to execute integer-based calculations.  Also,
- * iPhone applications are compiled in Thumb mode, by default.  While
+ * iOS applications are compiled in Thumb mode, by default.  While
  * thumb mode can reduce the code size by up to 35%, Apple recommends
  * applications that make extensive use of floating point math compile
  * without Thumb mode.
  *
- * Using the trigint library on iPhone OS not only provides much
+ * Using the trigint library on iOS not only provides much
  * faster trigonometry calculations, but it allows applications to be
  * compiled in Thumb mode, since no floating point is used.
  * 
