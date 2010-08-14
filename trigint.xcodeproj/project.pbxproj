@@ -174,6 +174,7 @@
 		55508B0A117801AC00ADA67D /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		55508B9A11780A4E00ADA67D /* ConversionsTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConversionsTest.h; sourceTree = "<group>"; };
 		55508B9B11780A4E00ADA67D /* ConversionsTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConversionsTest.m; sourceTree = "<group>"; };
+		555E97D712164A5000D982A8 /* Docs */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Docs; sourceTree = "<group>"; };
 		55B894BE1187164800FEB15C /* benchmark_main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = benchmark_main.m; sourceTree = "<group>"; };
 		55B894F9118717DA00FEB15C /* benchmark */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = benchmark; sourceTree = BUILT_PRODUCTS_DIR; };
 		55B895AC118727EA00FEB15C /* benchmark.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = benchmark.h; sourceTree = "<group>"; };
@@ -308,6 +309,7 @@
 				55EFE86411774E6400E2F8B6 /* Demo */,
 				55508A0F1177FEF900ADA67D /* Tests */,
 				55B894BC1187162500FEB15C /* Benchmark */,
+				555E97D712164A5000D982A8 /* Docs */,
 				551515F2119286D10030C8FF /* table_gen.c */,
 				55EFE971117941CB00E2F8B6 /* ThirdParty */,
 				29B97323FDCFA39411CA2CEA /* Frameworks */,

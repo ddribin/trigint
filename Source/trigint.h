@@ -28,12 +28,17 @@
 /**
  * @mainpage trigint: An Integer-based Trigonometry Library
  *
- * trigint is an integer-based trigonometry library.  The trigonometry
- * functions in the standard C library use floating point data types
- * (double or float), which may be too slow or unavailable in an
- * embedded environment.  This library uses only integer parameters,
- * return values, and calculations.  It has been tested on the iPhone
- * with Xcode and on an Atmel AVR microcontroller with avr-gcc.
+ * trigint is an integer-based trigonometry library for ANSI C.  The
+ * trigonometry functions in the standard C library use floating point
+ * data types (double or float), which may be too slow or unavailable
+ * in an embedded environment.  This library uses only integer
+ * parameters, return values, and calculations.  It has been tested on
+ * the <a href="http://developer.apple.com/iphone/">iPhone</a> with
+ * Xcode and on an <a href="http://www.atmel.com/products/avr/">Atmel
+ * AVR</a> microcontroller with <a
+ * href="http://www.avrfreaks.net/wiki/index.php/Documentation:AVR_GCC">avr-gcc</a>,
+ * but it is written in ANSI C99, and should work anywhere with a
+ * modern C compiler.
  *
  * Because the standard C library uses radians as the angle unit, they
  * must be represented with a floating point types.  To avoid using

@@ -61,7 +61,7 @@ int trigint_sin16_table_size();
  */
 int16_t trigint_sin16_table_lookup(int index);
 
-#ifndef TRIGINT_SIN16_STATIC_TABLE
+#ifndef TRIGINT_SIN16_STATIC_TABLE || DOXYGEN
 /**
  * Compile time macro that can be used to disable the static (compile-time)
  * lookup table.  This can be used to reduce compiled code size at the
@@ -70,7 +70,7 @@ int16_t trigint_sin16_table_lookup(int index);
 # define TRIGINT_SIN16_STATIC_TABLE 1
 #endif
 
-#if !TRIGINT_SIN16_STATIC_TABLE
+#if !TRIGINT_SIN16_STATIC_TABLE || DOXYGEN
 
 /**
  * Initialize the dynamic table. Must be called before any calls to
